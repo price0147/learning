@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/algorithm/algorithm.iml" filepath="$PROJECT_DIR$/algorithm/algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud.iml" filepath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api/microservicecloud-api.iml" filepath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api/microservicecloud-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-dept-80/microservicecloud-consumer-dept-80.iml" filepath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-dept-80/microservicecloud-consumer-dept-80.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-dept-8001/microservicecloud-provider-dept-8001.iml" filepath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-dept-8001/microservicecloud-provider-dept-8001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practiceprojcet/practiceprojcet.iml" filepath="$PROJECT_DIR$/practiceprojcet/practiceprojcet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud/springcloud.iml" filepath="$PROJECT_DIR$/springcloud/springcloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webservice/webservice.iml" filepath="$PROJECT_DIR$/webservice/webservice.iml" />
+    </modules>
+  </component>
+</project>

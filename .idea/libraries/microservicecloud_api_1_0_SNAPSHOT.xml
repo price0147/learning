@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="microservicecloud-api-1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api/target/microservicecloud-api-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
