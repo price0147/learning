@@ -1,4 +1,7 @@
 import datastructure.Queue;
+import datastructure.Stack;
+
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author: wangxu
@@ -6,7 +9,8 @@ import datastructure.Queue;
  */
 public class run {
     public static void main(String[] args) {
-        Queue queue = new Queue();
-        queue.queue_01();
+
+        Stack stack = new Stack();
+        stack.stack();
     }
 }
