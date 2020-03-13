@@ -1,3 +1,4 @@
+import datastructure.LinkedList;
 import datastructure.Queue;
 import datastructure.Stack;
 
@@ -10,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 public class run {
     public static void main(String[] args) {
 
-        Stack stack = new Stack();
-        stack.stack();
+        LinkedList linkedList = new LinkedList();
+        linkedList.linkedList();
     }
 }
