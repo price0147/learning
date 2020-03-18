@@ -10,7 +10,7 @@ mybatis:
   type-aliases-package: com.wangx.springcloud.entities # 所有Entity别名类所在包
   mapper-locations:
     - classpath:mybatis/mapper/**/*.xml # mapper映射文件
-
+Spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource # 当前数据源朝着类型
     driver-class-name: org.gjt.mm.mysql.Driver # mysql驱动包

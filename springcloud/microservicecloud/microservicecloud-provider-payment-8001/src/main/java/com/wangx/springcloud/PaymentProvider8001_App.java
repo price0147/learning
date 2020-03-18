@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Slf4j
-public class DeptProvider8001_App {
+public class PaymentProvider8001_App {
     public static void main(String[] args) {
-        SpringApplication.run(DeptProvider8001_App.class, args);
+        SpringApplication.run(PaymentProvider8001_App.class, args);
         log.info(">>>>>>启动完成<<<<<<<");
     }
 }
