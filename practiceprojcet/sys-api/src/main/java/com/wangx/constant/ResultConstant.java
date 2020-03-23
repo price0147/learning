@@ -1,8 +1,8 @@
 package com.wangx.constant;
 
 /**
- * 接口结果常量枚举类
- * Moded by weiiming on 2017/12/18.
+ * @author: wangxu
+ * @date: 2020/3/18 15:24
  */
 public enum ResultConstant {
 
@@ -30,3 +30,4 @@ public enum ResultConstant {
 
 
 }
+
