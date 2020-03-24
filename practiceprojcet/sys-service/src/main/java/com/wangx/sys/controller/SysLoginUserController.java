@@ -2,6 +2,8 @@ package com.wangx.sys.controller;
 
 import com.wangx.entities.SysUser;
 import com.wangx.sys.service.SysLoginUserService;
+import com.wangx.sys.until.JwtUntil;
+import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -36,7 +38,18 @@ public class SysLoginUserController {
         log.info("-------------------获取完成---------------"+str);
         stringRedisTemplate.delete("wangx");
         log.info("-------------------删除完成---------------");
+    }
+    @GetMapping(value = "jwttest")
+    public void jwtTest(){
+        SysUser sysUser = new SysUser(5L,"wang", "王");
+        String token =  JwtUntil.generateToken(sysUser);
+        log.info("=====获取Token=====" + token);
 
+        Claims claims = JwtUntil.getTokenInfo(token,"wangx");
+        log.info("=====Sub:====="+claims.getSubject());
+        log.info("=====created:====="+claims.get("created"));
+        log.info("=====Issuer:====="+claims.getIssuer());
+        log.info("=====Audience:====="+claims.getAudience());
     }
 
 }
