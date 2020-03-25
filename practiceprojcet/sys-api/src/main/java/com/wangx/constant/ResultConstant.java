@@ -6,9 +6,9 @@ package com.wangx.constant;
  */
 public enum ResultConstant {
 
-    FAILED(0, "操作失败！请刷新重试" ),
-    SUCCESS(1, "操作成功！" ),
-    VALIDATOR(2, "输入错误！" );
+    FAILED(0, "操作失败！请刷新重试"),
+    SUCCESS(1, "操作成功！"),
+    VALIDATOR(2, "输入错误！");
 
     private int code;
 

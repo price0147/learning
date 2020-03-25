@@ -1,11 +1,11 @@
-package com.wangx.sys.until;
+package com.wangx.common.until;
 
 /**
  * @author: wangxu
  * @date: 2020/3/20 14:31
  */
 public class RedisUntil {
-    public static String get(String key){
+    public static String get(String key) {
         return null;
     }
 }

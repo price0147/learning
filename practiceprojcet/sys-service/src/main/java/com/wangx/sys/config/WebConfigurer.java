@@ -14,6 +14,7 @@ public class WebConfigurer implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
 
     }
+
     //这个方法用来配置静态资源的,比如html,js,css,等等
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

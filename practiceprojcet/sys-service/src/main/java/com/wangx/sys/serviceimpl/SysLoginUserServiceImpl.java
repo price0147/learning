@@ -1,5 +1,9 @@
 package com.wangx.sys.serviceimpl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.wangx.base.BaseResult;
+import com.wangx.common.baseclass.BaseServiceImpl;
+import com.wangx.constant.BaseConstants;
 import com.wangx.entities.SysUser;
 import com.wangx.sys.mapper.SysLoginUserMapper;
 import com.wangx.sys.service.SysLoginUserService;
@@ -15,9 +19,14 @@ import javax.annotation.Resource;
 public class SysLoginUserServiceImpl implements SysLoginUserService {
     @Resource
     SysLoginUserMapper sysLoginUserMapper;
+
     @Override
-    public SysUser getByUser(SysUser user) {
-        SysUser sysUser = sysLoginUserMapper.selectById(1L);
-        return sysUser;
+    public BaseResult login(SysUser user) {
+        QueryWrapper<SysUser> wrapper = new QueryWrapper<>();
+        wrapper.eq("USER_NAME", user.getUserName());
+        wrapper.eq(BaseConstants.DEL_FLAG, BaseConstants.DelFlag.NORMAL);
+
+        return null;
     }
+
 }

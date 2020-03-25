@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping(value = "/sys")
 @Slf4j
-@Api(value = "用户管理相关接口",description = "用户管理系统")
+@Api(value = "用户接口", description = "用户管理")
 public class SysLoginUserController {
     @Resource
     SysLoginUserService sysLoginUserService;
@@ -28,12 +28,16 @@ public class SysLoginUserController {
     @Resource
     SysLoginUserMapper sysLoginUserMapper;
 
-    @ApiOperation(value = "测试接口", response = SysUser.class)
+
+    @ApiOperation(value = "登录接口", response = SysUser.class)
     @PostMapping(value = "/login")
-    public Object logIn(SysUser sysUser){
-        SysUser users = sysLoginUserMapper.selectById(1L);
+    public Object logIn(SysUser sysUser) {
+
         //todo:这个位置以后要改成校验框架
-        return BaseResult.successResultCreate(users);
+        if (sysUser.getUserName() == null || sysUser.getPassWord() == null) {
+            return BaseResult.failResultCreate("用户名和密码不能为空");
+        }
+        return sysLoginUserService.login(sysUser);
     }
 
 }

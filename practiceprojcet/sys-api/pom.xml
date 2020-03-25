@@ -24,8 +24,8 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
         </dependency>
         <!-- mybatis plus 代码生成器依赖 -->
         <dependency>
@@ -33,8 +33,9 @@
             <artifactId>mybatis-plus-generator</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
         <!--整合swagger-->
         <dependency>
@@ -46,7 +47,6 @@
             <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
     </dependencies>
-
 
 
 </project>
