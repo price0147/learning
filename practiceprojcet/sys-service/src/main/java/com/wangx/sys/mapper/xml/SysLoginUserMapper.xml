@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wangx.sys.dao.SysLoginUserDao">
+<mapper namespace="com.wangx.sys.mapper.SysLoginUserMapper">
     <resultMap id="LoginMap" type="com.wangx.entities.SysUser">
         <id property="id" column="id" jdbcType="BIGINT"></id>
         <id property="PassWord" column="PASS_WORD" jdbcType="VARCHAR"></id>
         <id property="UserName" column="USER_NAME" jdbcType="VARCHAR"></id>
     </resultMap>
-    <select id="getById" resultType="com.wangx.entities.SysUser" resultMap="LoginMap">
-        select * from SYS_LOGIN_USER where id = #{id}
-    </select>
 </mapper>
