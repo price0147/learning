@@ -1,8 +1,10 @@
 package com.wangx.sys.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.wangx.base.BaseResult;
+import com.wangx.common.base.BaseServiceImpl;
+import com.wangx.constant.BaseConstants;
 import com.wangx.entities.SysUser;
-import com.wangx.sys.mapper.SysLoginUserMapper;
 import com.wangx.sys.service.SysLoginUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,14 +27,10 @@ public class SysLoginUserController {
     @Resource
     SysLoginUserService sysLoginUserService;
 
-    @Resource
-    SysLoginUserMapper sysLoginUserMapper;
-
 
     @ApiOperation(value = "登录接口", response = SysUser.class)
     @PostMapping(value = "/login")
     public Object logIn(SysUser sysUser) {
-
         //todo:这个位置以后要改成校验框架
         if (sysUser.getUserName() == null || sysUser.getPassWord() == null) {
             return BaseResult.failResultCreate("用户名和密码不能为空");

@@ -1,4 +1,4 @@
-package com.wangx.common.baseclass;
+package com.wangx.common.base;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
