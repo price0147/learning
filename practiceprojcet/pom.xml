@@ -11,7 +11,6 @@
 	<modules>
 		<module>sys-service</module>
 		<module>sys-api</module>
-		<module>sys-common</module>
 	</modules>
 	<!--统一管理版本号-->
 	<properties>
@@ -28,6 +27,7 @@
 		<jjwt.version>0.9.1</jjwt.version>
 		<redis.version>2.2.5.RELEASE</redis.version>
 		<swagger.version>2.9.2</swagger.version>
+		<fluentvalidator.version>1.0.9</fluentvalidator.version>
 	</properties>
 	<!--这个标签:只声明不引入,子模块继承以后,提供作用:锁定版本 + 子Modlue不用写groupId和version-->
 	<dependencyManagement>
@@ -133,6 +133,12 @@
 				<groupId>io.springfox</groupId>
 				<artifactId>springfox-swagger-ui</artifactId>
 				<version>${swagger.version}</version>
+			</dependency>
+			<!--fluent-validator 集成 spring 需要添加的依赖-->
+			<dependency>
+				<groupId>com.baidu.unbiz</groupId>
+				<artifactId>fluent-validator-spring</artifactId>
+				<version>${fluentvalidator.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

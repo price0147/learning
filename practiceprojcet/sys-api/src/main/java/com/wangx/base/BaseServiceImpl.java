@@ -1,8 +1,7 @@
-package com.wangx.common.base;
+package com.wangx.base;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wangx.base.BaseModel;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.wangx.common.until;
+package com.wangx.sys.untils;
 
 import com.wangx.entities.SysUser;
 import io.jsonwebtoken.Claims;

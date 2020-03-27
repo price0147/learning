@@ -1,7 +1,7 @@
-package com.wangx.sys.service;
+package com.wangx.api;
 
 import com.wangx.base.BaseResult;
-import com.wangx.common.base.BaseService;
+import com.wangx.base.BaseService;
 import com.wangx.entities.SysUser;
 
 import java.util.Map;
