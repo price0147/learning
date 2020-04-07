@@ -1,9 +1,5 @@
 package com.wangx.sys.controller;
 
-import com.baidu.unbiz.fluentvalidator.ComplexResult;
-import com.baidu.unbiz.fluentvalidator.FluentValidator;
-import com.baidu.unbiz.fluentvalidator.Result;
-import com.baidu.unbiz.fluentvalidator.ResultCollectors;
 import com.wangx.api.SysLoginUserService;
 import com.wangx.base.BaseResult;
 import com.wangx.entities.SysUser;
@@ -17,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-
-import static com.baidu.unbiz.fluentvalidator.ResultCollectors.toSimple;
 
 /**
  * @author: wangxu
@@ -46,6 +40,11 @@ public class SysLoginUserController {
         sysLoginUserService.login(sysUser);
         log.info("" + validUntil.getResult());
         return sysLoginUserService.login(sysUser);
+    }
+    @ApiOperation(value = "测试接口")
+    @PostMapping(value = "/test")
+    public void logIn() {
+        System.out.println("测试接口启动");
     }
 
 

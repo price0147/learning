@@ -58,8 +58,8 @@ public class JwtUntil {
     }
 
     //解析token
-    public static Claims getTokenInfo(String token, String key) {
-        Claims claims = Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
+    public static Claims getTokenInfo(String token) {
+        Claims claims = Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
         return claims;
     }
 

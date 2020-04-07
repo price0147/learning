@@ -11,6 +11,7 @@
     <modules>
         <module>microservicecloud-provider-payment-8001</module>
         <module>microservicecloud-consumer-order-80</module>
+        <module>cloud-api-commons</module>
     </modules>
     <!--统一管理版本号-->
     <properties>
