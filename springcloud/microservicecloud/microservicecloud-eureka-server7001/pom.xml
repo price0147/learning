@@ -9,36 +9,47 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>microservicecloud-consumer-order-80</artifactId>
+    <artifactId>microservicecloud-eureka-server7001</artifactId>
 
     <dependencies>
         <!--以前老版本-->
         <!--spring-cloud-starter-eureka-->
-        <!--eureka 注意这个是client包-->
+        <!--eureka 注意这个是server包-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
 
+        <!--    引入自定义的api通用包，可以使用Payment支付Entity    -->
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>microservicecloud-api-commons</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!-- boot web actuator -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--图形监控,以后配置swagger或者是豪猪哥都需要用到-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!--  一般通用配置  -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!--  热部署      -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+        <!--   单元测试     -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -48,6 +59,5 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
     </dependencies>
 </project>
