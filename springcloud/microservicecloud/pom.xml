@@ -14,6 +14,7 @@
         <module>microservicecloud-api-commons</module>
         <module>microservicecloud-eureka-server-7001</module>
         <module>microservicecloud-eureka-server-7002</module>
+        <module>microservicecloud-provider-payment-8002</module>
     </modules>
     <!--统一管理版本号-->
     <properties>
