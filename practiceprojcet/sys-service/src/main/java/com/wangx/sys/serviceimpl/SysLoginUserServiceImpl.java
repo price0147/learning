@@ -10,6 +10,8 @@ import com.wangx.sys.untils.JwtUntil;
 import com.wangx.sys.untils.ValidUntil;
 import com.wangx.sys.untils.verification.ObjNotBlankValidator;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.Map;
@@ -23,6 +25,9 @@ import java.util.Map;
 public class SysLoginUserServiceImpl extends com.baomidou.mybatisplus.extension.service.impl.ServiceImpl<SysLoginUserMapper, SysUser> implements SysLoginUserService, BaseService<SysUser, Map<String, Object>> {
     @Resource
     SysLoginUserService sysLoginUserService;
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
 
     @Override
     public BaseResult login(SysUser user) {
@@ -40,6 +45,8 @@ public class SysLoginUserServiceImpl extends com.baomidou.mybatisplus.extension.
         }
         //生产token
         String token = JwtUntil.generateToken(sysUser);
+        //将token存入redis
+        stringRedisTemplate.opsForValue().set("token", token);
         return BaseResult.successResultCreate(token, "登录成功");
     }
 }

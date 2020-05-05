@@ -13,4 +13,8 @@ eureka:
       #通俗易懂的说就是将自己注册到下面这个eureka上去
       #相互守望,相互注册,如果想实现集群高可用,有多台服务器,可以用逗号隔开
       #如果是单机版下面直接写直接的地址就行了
-      defaultZone: http://eureka7002:7002/eureka/
+      #defaultZone: http://eureka7002:7002/eureka/ #集群模式->指向其他注册中心
+      defaultZone: http://eureka7001:7001/eureka/ #单机模式->指向自己
+  server:
+    enable-self-preservation: false #关闭自我保护机制
+    eviction-interval-timer-in-ms: 2000 #设置默认时间(单位ms)

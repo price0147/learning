@@ -5,9 +5,12 @@ import com.wangx.springcloud.entities.Payment;
 import com.wangx.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author: wangxu
@@ -23,6 +26,10 @@ public class PaymentController {
     @Value("${server.port}")
     @Resource
     private String serverPort;
+
+    //DiscoveryClient这是一个服务发现的对象,发现一些自己的基础信息比如:端口号,服务名
+    @Resource
+    private DiscoveryClient discoveryClient;
 
 
     @PostMapping(value = "create")
@@ -43,6 +50,17 @@ public class PaymentController {
         }
         return new CommonResult(500, "查询失败", null);
 
+    }
+    @GetMapping(value = "/discovery")
+    public Object discovery(){
+        //获取服务清单列表(方式一)
+        List<String> service = discoveryClient.getServices();
+        service.forEach(x -> log.info("********" + x));
+
+        //通过服务名获取对应服务名下的Instance实例
+        List<ServiceInstance> instances = discoveryClient.getInstances("MICROSERVICECLOUD-PAYMENT-SERVICE");
+        instances.forEach(x -> log.info(x.getServiceId() + "\t" + x.getHost() + "\t" + x.getInstanceId() + "\t" + x.getPort() + "\t" + x.getUri()));
+        return discoveryClient;
     }
 
 }
