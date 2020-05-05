@@ -6,16 +6,15 @@
         <option value="$PROJECT_DIR$/webservice/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud/microservicecloud/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-dept-80/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-dept-8001/pom.xml" />
         <option value="$PROJECT_DIR$/practiceprojcet/pom.xml" />
+        <option value="$PROJECT_DIR$/practiceprojcet/sys-service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/springcloud/microservicecloud/moicroservicecloud/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud/microservicecloud/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/practiceprojcet/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-eureka-server7002/pom.xml" />
       </set>
     </option>
   </component>

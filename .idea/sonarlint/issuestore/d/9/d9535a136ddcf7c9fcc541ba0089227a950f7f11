@@ -1,0 +1,12 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(·š†‡
+R
+java:S1481"0Remove this unused "oneObserver" local variable.(éàºìüÿÿÿÿ8’×è–—.
+R
+java:S1481"0Remove this unused "twoObserver" local variable.(ˆúÏ÷úÿÿÿÿ8€ûî–—.
+S
+java:S1481"1Remove this unused "fourObserver" local variable.(¨ºŸıÿÿÿÿ8€ûî–—.
+O
+java:S1481"2Remove this unused "threeObserver" local variable.(ÊÜÀÿ8€ûî–—.
+i
+java:S1223"LRename this method to prevent any misunderstanding or make it a constructor.(Çµí‘8±ï°–—.

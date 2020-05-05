@@ -1,0 +1,6 @@
+
+Z	java:S1068"9Replace this use of System.out or System.err by a logger.(µåê·üÿÿÿÿ8Ø×Ç•.
+F
+java:S19050")Remove this unnecessary cast to "String".(üıÿ«8†ª²ˆš.
+P
+java:S1874"3Remove this use of "description"; it is deprecated.(’ãç‹8ç•ï“.

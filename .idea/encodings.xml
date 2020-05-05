@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/practiceprojcet/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/practiceprojcet/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-dept-80/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-dept-80/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-dept-8001/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-dept-8001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/practiceprojcet/sys-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/practiceprojcet/sys-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/practiceprojcet/sys-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api-commons/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api-commons/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-order-80/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-order-80/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-eureka-server-7001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-eureka-server-7001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-eureka-server-7002/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-eureka-server-7002/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8002/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8002/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8004/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8004/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/webservice/src/main/java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

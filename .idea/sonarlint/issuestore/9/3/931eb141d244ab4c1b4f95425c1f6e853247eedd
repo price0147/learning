@@ -1,0 +1,10 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(·‘òö
+[
+java:S1128">Remove this unused import 'java.nio.charset.StandardCharsets'.(ï˜ŞÛ8¯†Ï£Œ.
+W
+java:S1128"5Remove this unused import 'datastructure.LinkedList'.(‰ö¡Ÿşÿÿÿÿ8í‚Ç¡.
+M
+java:S1128"0Remove this unused import 'datastructure.Queue'.(ºŸ°Ç8Ü¢Ï£Œ.
+M
+java:S1128"0Remove this unused import 'datastructure.Stack'.(™ÿé8„ŸñŒ.

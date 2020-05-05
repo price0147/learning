@@ -1,0 +1,6 @@
+
+N	java:S106!"9Replace this use of System.out or System.err by a logger.(«Ó³Ê
+S
+java:S1197"8Move the array designator from the variable to the type.(Þ§ÜÞùÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ƒìîüýÿÿÿÿ
+Q	java:S125'"<This block of commented-out lines of code should be removed.(Î¼ÇÎ
