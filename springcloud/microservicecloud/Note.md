@@ -1,4 +1,11 @@
-# Eureka
+# CAP理论
+C - consistency 强一致性<br>
+A - availability  可用性<br>
+P - partition tolerance 分区容错性<br>
+CA - 单点集群，满足一致性，可用性，通常在可拓展性上不太强大<br>
+CP - 满足一致性，分区容错性的系统，通常性能不是特别的高<br>
+AP - 满足可用性，分区容错性，通过对数据一致性要求低一些。<br>
+# Eureka(AP特性)
 Eureka包括两个组件:Eureka Service 和 Eureka Client
 
 Eureka Service 提供服务注册服务:<br/>
@@ -143,4 +150,29 @@ eureka:
     #Eureka客户端在收到最后一次心跳后等待时间上限,单位为秒(默认为90秒),超时剔除服务
     lease-expiration-duration-in-seconds: 2
 ```
-# zookeeper替换Eureka整合springCloud
+# zookeeper替换Eureka整合springCloud(CP特性)
+zookeeper节点区分<br>
+1.临时节点<br>
+2.带序号的临时节点<br>
+3.持久节点<br>
+4.带序号的持久节点<br>
+
+注意:微服务注册到zookeeper中时是属于临时节点,也就是说它不会像Eureka一样会有自我保护机制,只要某一节点在心跳过程中中断zookeeper就会将该节点剔除.
+
+# Consul
+## 能做呢什么
+1. 服务注册与发现 -> 提供HTTP和DNS两种发现方式
+2. 健康检查 -> 支持多种方式,HTTP,TCP,Docker,Shell脚本定制化
+3. KV存储 -> Key、Value的存储方式
+4. 多数据中心 -> Consul支持多数据中心
+5. 可视化Web界
+
+## 注册与发现
+中文教程:https://www.springcloud.cc/spring-cloud-consul.html <br>
+基本步骤和zookeeper是一样的
+1. 安装Consul
+2. pom引包
+3. 配置文件,配置地址.
+4. 主启动类添加@EnableDiscoveryClient
+# 三个注册中心的异同
+![](.Note_images/e322df98.png)
