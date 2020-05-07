@@ -1,11 +1,12 @@
-# CAP理论
+# 注册中心(Eureka,Zookeeper,Consul)
+## CAP理论
 C - consistency 强一致性<br>
 A - availability  可用性<br>
 P - partition tolerance 分区容错性<br>
 CA - 单点集群，满足一致性，可用性，通常在可拓展性上不太强大<br>
 CP - 满足一致性，分区容错性的系统，通常性能不是特别的高<br>
 AP - 满足可用性，分区容错性，通过对数据一致性要求低一些。<br>
-# Eureka(AP特性)
+## Eureka(AP特性)
 Eureka包括两个组件:Eureka Service 和 Eureka Client
 
 Eureka Service 提供服务注册服务:<br/>
@@ -15,9 +16,9 @@ Eureka Client 通过注册中心进行访问:<br/>
 是一个java客户端,用于简化Eureka Ser
 vice的交互,客户端同时也具备一个内置的,使用轮询负载算法的负载均衡器.在应用启动后,将会将Eureka Service发送心跳机制(默认周期是30秒).如果Eureka Service在多个心跳周期内没有收到某个节点心跳,Eureka Service将会从服务注册表中把这个服务节点移除(默认90秒)
 
-# 集群Eureka搭建步骤
+## 集群Eureka搭建步骤
 ![](.Note_images/36edb623.png)
-## 集群注册原理
+### 集群注册原理
     相互注册,相互守望
         :就是互相调用(A调用B,B也可以调用A)
     这一部分需要修改映射配置
@@ -26,9 +27,9 @@ vice的交互,客户端同时也具备一个内置的,使用轮询负载算法�
                            127.0.0.1    eureka7003.com
     修改原因:我们要用到集群,但是物理上我们只有一台机器所有我们要配置这个映射
     ,用不同的端口号来映射同一个地址
-## actuator微服务信息完善
+### actuator微服务信息完善
 完善一些细节问题.
-### 主机名称:服务名称修改
+#### 主机名称:服务名称修改
 ```yaml
 eureka:
   client:
@@ -43,7 +44,7 @@ eureka:
   instance:
     instance-id: payment8002 #设置你的主机名称
 ```
-### 设置IP提示
+#### 设置IP提示
 ```yaml
 eureka:
   client:
@@ -59,16 +60,16 @@ eureka:
     instance-id: payment8001
     prefer-ip-address: true #访问路径可以显示ip地址
 ```
-## 服务发现Discovery
+### 服务发现Discovery
 对于注册进eureka里面的微服务,可以通过服务发现来获得该服务的消息
 
-### DiscoveryClient对象
+#### DiscoveryClient对象
 ```java
     //DiscoveryClient这是一个服务发现的对象,发现一些自己的基础信息比如:端口号,服务名
     @Resource
     private DiscoveryClient discoveryClient;
 ```
-### @EnableDiscoveryClient
+#### @EnableDiscoveryClient
 主启动类上添加注解开启服务发现功能
 ```java
 @SpringBootApplication
@@ -78,7 +79,7 @@ eureka:
 @EnableDiscoveryClient
 public class PaymentMain8001 {
 ```
-### 代码实现获取服务信息
+#### 代码实现获取服务信息
 ```java
 @GetMapping(value = "/discovery")
 public Object discovery(){
@@ -92,7 +93,7 @@ public Object discovery(){
     return discoveryClient;
 }
 ```
-## Eureka自我保护
+### Eureka自我保护
 概述:<br>
 保护模式主要用于一组客户端和Eureka Service之间存在网络分区场景下的保护.
 一旦进入保护模式,Eureka Service将会尝试保护其服务注册中心的信息,不再删除
@@ -109,7 +110,7 @@ public Object discovery(){
 
 在自我保护模式中,Eureka Server会保护服务注册表中的信息,不再注销任何服务实例<br>
 它的设计哲学就是宁可保留错误的服务注册信息,也不盲目注销任何可能健康的服务实例.
-### 服务端关闭自我保护机制
+#### 服务端关闭自我保护机制
 ```yaml
 eureka:
   instance:
@@ -130,7 +131,7 @@ eureka:
     enable-self-preservation: false #关闭自我保护机制
     eviction-interval-timer-in-ms: 2000 #设置默认时间(单位ms)
 ```
-### 客户端修改心跳时间
+#### 客户端修改心跳时间
 ```yaml
 eureka:
   client:
@@ -150,7 +151,7 @@ eureka:
     #Eureka客户端在收到最后一次心跳后等待时间上限,单位为秒(默认为90秒),超时剔除服务
     lease-expiration-duration-in-seconds: 2
 ```
-# zookeeper替换Eureka整合springCloud(CP特性)
+## zookeeper替换Eureka整合springCloud(CP特性)
 zookeeper节点区分<br>
 1.临时节点<br>
 2.带序号的临时节点<br>
@@ -159,20 +160,60 @@ zookeeper节点区分<br>
 
 注意:微服务注册到zookeeper中时是属于临时节点,也就是说它不会像Eureka一样会有自我保护机制,只要某一节点在心跳过程中中断zookeeper就会将该节点剔除.
 
-# Consul
-## 能做呢什么
+## Consul
+### 能做呢什么
 1. 服务注册与发现 -> 提供HTTP和DNS两种发现方式
 2. 健康检查 -> 支持多种方式,HTTP,TCP,Docker,Shell脚本定制化
 3. KV存储 -> Key、Value的存储方式
 4. 多数据中心 -> Consul支持多数据中心
 5. 可视化Web界
 
-## 注册与发现
+### 注册与发现
 中文教程:https://www.springcloud.cc/spring-cloud-consul.html <br>
 基本步骤和zookeeper是一样的
 1. 安装Consul
 2. pom引包
 3. 配置文件,配置地址.
 4. 主启动类添加@EnableDiscoveryClient
-# 三个注册中心的异同
+## 三个注册中心的异同
 ![](.Note_images/e322df98.png)
+
+# 服务调用
+## Spring Could Ribbon(负载均衡+RestTemplate调用)
+    Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端
+        主要功能:提供客户端的软件负载均衡算法和服务调用
+    
+    Ribbon和Nginx的区别:
+        Nginx是服务器负载均衡,客户端所有请求都会交给Nginx,然后由Nginx实现转发请求.即负载均衡是由服务端实现的.
+        Ribbon本地负载均衡,在调用微服务接口时候,会在注册中心上获取注册信息服务列表之后缓存到JVM本地,从而在本地实现RPC远程服务调用技术
+    
+    LB(负载均衡):
+        集中式负载均衡:
+            即在服务的消费方和提供方之间使用独立的LB设施(可以使硬件,如F5,也可以是软件,如Nginx),由该设施负责把访问请求通过某种策略转发至服务的提供方
+        进程内负载均衡
+            将Lb逻辑集成到消费方,消费方从服务注册中心获知有哪些地址可用,然后自己再从这些地址中挑出来一个合适的服务器.
+            Ribbon就属于进程内LB,它只是一个类库,集成于消费方进程,消费方通过它来获取到服务提供方的地址.
+            
+        Ribbon在工作中分两步
+            第一步:先选择EurekaServer,它优先选择在同一个区域内负载较少的server
+            第二步:再根据用户指定的策略,在从server取到的服务注册列表中选择一个地址.
+            其中Ribbon提供了多种策略:比如轮循,随机和根据响应时间加权.
+            
+引用↓↓↓↓↓↓↓↓↓
+```xml
+        <!--Eureka自己集成Ribbon,所以实现了调用的负载均衡功能-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+```
+## RestTemplate了解
+1. 常用方法
+    1. getForObject方法/getForEntity方法<br>
+        1. getForObject返回对象为响应体中数据转成的对象,基本上可以理解为json
+        2. 返回对象为ResponseEntity对象,包含了响应中的一些重要信息,比如响应头,响应状态码,响应体等.
+    2. postForObject方法/postForEntity方法
+    3. GET请求方法
+    4. POST请求方法<br>
+
+    

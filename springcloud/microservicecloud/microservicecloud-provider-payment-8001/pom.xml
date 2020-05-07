@@ -14,6 +14,7 @@
         <!--以前老版本-->
         <!--spring-cloud-starter-eureka-->
         <!--eureka 注意这个是client包-->
+        <!--Eureka自己集成Ribbon,所以实现了调用的负载均衡功能-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>

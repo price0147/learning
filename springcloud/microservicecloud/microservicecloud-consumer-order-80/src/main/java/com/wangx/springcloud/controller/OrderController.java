@@ -3,6 +3,7 @@ package com.wangx.springcloud.controller;
 import com.wangx.springcloud.entities.CommonResult;
 import com.wangx.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -33,10 +34,40 @@ public class OrderController {
         return restTemplate.postForObject(PAYMENT_URL + "/payment/create", payment, CommonResult.class);
     }
 
+    @GetMapping("/postForEntity/create")
+    public CommonResult<Payment> creatPostForEntity(Payment payment){
+        //使用restTemplate访问restful接口非常的简单粗暴无脑.
+        //(url,requestMap,ResponseBean.class)
+        //这三个参数分别代表REST请求地址,请求参数,HTTP响应转换被转换成的对象类
+        ResponseEntity<CommonResult> entity = restTemplate.postForEntity(PAYMENT_URL + "/payment/create", payment, CommonResult.class);
+        if (entity.getStatusCode().is2xxSuccessful()) {
+            return entity.getBody();
+        }else{
+            return new CommonResult<>(530,"PostForEntity操作失败");
+        }
+    }
+
     @GetMapping("/get/{id}")
     public CommonResult<Payment> getPayment(@PathVariable("id") String id) {
         CommonResult<Payment> commonResult = restTemplate.getForObject(PAYMENT_URL + "/payment/get/" + id,CommonResult.class);
         return commonResult;
+    }
+
+    /**
+     * 使用getForEntity方法
+     * @param id
+     * @return
+     */
+    @GetMapping("/getForEntity/{id}")
+    public CommonResult<CommonResult> getPaymentGetForEntity(@PathVariable("id") String id) {
+        ResponseEntity<CommonResult> commonResult = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id,CommonResult.class);
+        log.info(commonResult.getStatusCode() + "\n------------------\n" + commonResult.getHeaders() + "\n------------------\n" + commonResult.getStatusCodeValue());
+        if(commonResult.getStatusCode().is2xxSuccessful()){
+            return commonResult.getBody();
+        }else{
+            return new CommonResult<>(520, "GetForEntity操作失败");
+        }
+
     }
 
 }
