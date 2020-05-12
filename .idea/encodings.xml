@@ -7,8 +7,12 @@
     <file url="file://$PROJECT_DIR$/practiceprojcet/sys-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api-commons/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api-commons/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-feign-order-80/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-feign-order-80/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-order-80/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-order-80/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumerzk-order-80/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumerzk-order-80/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-eureka-server-7001/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-eureka-server-7001/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-eureka-server-7002/src/main/java" charset="UTF-8" />

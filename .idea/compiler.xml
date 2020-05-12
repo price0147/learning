@@ -7,25 +7,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="sys-api" />
-        <module name="microservicecloud-consumer-order-80" />
         <module name="microservicecloud-provider-payment-8004" />
-        <module name="microservicecloud-api-commons" />
+        <module name="webservice" />
         <module name="microservicecloud-provider-payment-8002" />
         <module name="microservicecloud-provider-payment-8001" />
-        <module name="webservice" />
-        <module name="microservicecloud-eureka-server-7002" />
-        <module name="microservicecloud-eureka-server-7001" />
-        <module name="sys-service" />
-        <module name="microservicecloud-eureka-server7002" />
         <module name="dome2" />
+        <module name="sys-api" />
+        <module name="microservicecloud-eureka-server-7002" />
+        <module name="microservicecloud-consumer-order-80" />
+        <module name="microservicecloud-consumer-feign-order-80" />
+        <module name="microservicecloud-eureka-server7002" />
+        <module name="sys-service" />
+        <module name="microservicecloud-eureka-server-7001" />
+        <module name="microservicecloud-api-commons" />
+        <module name="microservicecloud-consumerzk-order-80" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="love-website" target="1.8" />
       <module name="microservicecloud" target="1.8" />
       <module name="microservicecloud-api-commons" target="1.8" />
+      <module name="microservicecloud-consumer-feign-order-80" target="1.8" />
       <module name="microservicecloud-consumer-order-80" target="1.8" />
+      <module name="microservicecloud-consumerzk-order-80" target="1.8" />
       <module name="microservicecloud-eureka-server-7001" target="1.8" />
       <module name="microservicecloud-eureka-server-7002" target="1.8" />
       <module name="microservicecloud-eureka-server7001 (1)" target="1.8" />

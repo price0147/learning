@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="404b5114-e895-4efa-aa76-7e5cda7970c1" name="Default Changelist" comment="新增8002服务提工作模块(新增项目模块)&#10;处理访问服务名无法调用服务问题(问题修改)">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cn_hutool_hutool_all_5_2_4.xml" afterDir="false" />
@@ -64,8 +81,15 @@
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_13.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_configuration_commons_configuration_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_jxpath_commons_jxpath_1_3.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_core_10_7_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_hystrix_10_7_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_slf4j_10_7_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_form_feign_form_3_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_form_feign_form_spring_3_8_0.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_6_0.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_lettuce_lettuce_core_5_2_2_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_core_1_3_1.xml" afterDir="false" />
@@ -163,12 +187,14 @@
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_server_2_2_2_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_hystrix_2_2_2_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_ribbon_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_openfeign_core_2_2_2_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_2_2_2_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_loadbalancer_2_2_2_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_archaius_2_2_2_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_client_2_2_2_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_server_2_2_2_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_ribbon_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_openfeign_2_2_2_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_zookeeper_2_2_1_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_zookeeper_discovery_2_2_1_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_zookeeper_core_2_2_1_RELEASE.xml" afterDir="false" />
@@ -196,152 +222,21 @@
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xmlpull_xmlpull_1_1_3_1.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xpp3_xpp3_min_1_1_4c.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/090c3731259d605976afbf4378073827fa11bfec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/09ce9d4f9c3589c4ee01f2c866f64633a86a39cd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/a/0a2c0a5d42e909714966812b75dc7046c1b7a3da" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0bf3a329f0af4b96aea2fa993e60be6eba15be25" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/c/0cad6b0ae1820147900bfe14a3db9c6557330838" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/d/0db3ba1117841fbb19de9c27e66ca4f665a1e560" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/0/10ac1f4841b528d06f9d687d6acc29d2aab81a81" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/3/13778eef1a49e2d9b42a5213f284fe66a864041c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/4/140796c70d316844f768340fd4c70190fb1e5467" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/6/16a80cb6b8b39d8c628a8355f43cae88a73b3643" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/8/183742a36e943d5e89e0eeb53497331da3624aee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/8/183855cdf14a1b193f3d661683f35fbe18a78b44" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/19f711193961b8742c97b479f5ca2935dea3b955" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/e/1e51b7b4629fffc4484a0d864f9e1b4b2e53ed70" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/252993a1fbe33aca5df7f317fd69fcb3a0edcdf0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/256d8c8511b216ea837fe04515740bd8cd1e260d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/288e242fda1d278fd253890085e6838f37c5ac7c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/28a18fb8aa42cc2c91682e0d52138b608142b634" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2d9e77d2a300ce5f396a110043656ef209567738" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/e/2ea9792ab8df69307e6cbd206cd9c4b698e8b6fa" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/0/307df3e7874e31718e0dfbac1a54f709590ddb71" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/3/3389bc08a4659e562ff63a24a44f95014d24a2e5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/3/33dd4420db4070a72e519e977fa2bbfa3361cf38" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/d/3d86b681e934b6ca6b603b3a3c7a77dcb3010fcf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/0/40138b0c35976bb8afe5fb2ac43250da48f608be" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/44abe0ce2b3722dacfca8ab15532032582de21a2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/6/465c79e11091d4d0f5b70f85891fd1e4da680788" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/a/4aea1242fd5c02fb3f1142ef4080bf2896dde5b0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/1/51ad4d2cc5e9f9787657ed3d82fd2a4bff890505" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/2/52971e7e89f3bfa055e4fe9f47ecb43553f43a89" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/531ce22b9fd06a07a32ae143905e4ba45cfc2bcb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/56785cffabe4ca62cf3035f37634e6a590e8855c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/8/5810dccb7272b4f71c18956edeac120a48ab6955" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/8/58d1ecbc236b7d110030e54aaeef8ba569a10b33" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5a122cf0c33ac72af65507693dc8a4c798fde165" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/d/5d77cdaa67898e10d2f52899975ceb4bdb13dd53" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/65a96ad98771c1aabe4947961054d43d3ebb7b2a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/6/6634d7bbe2eb557c0ed49d797fefead7ffdedf4a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/7/6797417985eb3f14e5fe2719c9477c094ea71369" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/a/6a0307c1eaf45474688480e8504e0d6b8f2089ac" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/a/6a794e4fff4c6b067eeb0f83f1b8f2a1610bf93f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/5/7534542f59d5d85f1521673f3760909afb541439" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/5/75794ef7650b728d26b22f1e0b11a07dcb66ed3f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/6/76535b6d1c69c8541c3ca1a402cd99ebf4f7f8df" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/79ceb029a0e3436fb95de7cd7856fceedd5deb6b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/b/7bfadd799bc9973bf0e985419cd29ff4109d6275" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/1/8103ab1db102915017cb54d4088df33ee1561aa5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/2/82df69e37424f7808b6efef2ccee61ab69ad38a6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/4/8470dbd223a4e495fd2c4798a5bc9d879f46461e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/4/8482cee73cc2316a3e82f2943db5a1ae04c74dfe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/6/86f471628b7bcb0a4c4e7a21d0b1577b7bb9a026" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/8/881131c6a51b3205f814813c4a2a3c2860d9265b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/8/8838122785f995c93cfb9e1d8feaa40e69687e26" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8a9d4f6a6015ca7c8dba42cf43b75390bea9175f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/0/90bcbe306b07d5f6e3d535644874dcab3480cdb6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/3/931eb141d244ab4c1b4f95425c1f6e853247eedd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/4/94513478966748c9c7ea52510534cd98b92666ba" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/4/94ea7704346735c072f47f5d680af4aad9e6b648" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9b7dea4158871d915a0a26ed52ddb20b961ca2ae" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/c/9c7e39a34243be0c5e869f7a48586204946fde29" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/c/9cde505a1fa87a6f4d4755fb7d2721b46ada8ed7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/f/9ff5375b1ccdc4e7a4282d5ccaa1154c6b0ea228" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/3/a3d22a0f29e3d59ba95672e2875ede0732e68f5a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/4/a4b1ef20e69bdfe1262da44086c96008619dce4e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/e/aec02c39ad4851c974bf253c00510707f827f7a9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/f/af8b8ff6208108674006e63459399b76f55c1a74" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b00c1d195a88eb78188b9ee1e8b66b0c99ec2f6d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b04135dfbfa655d7daa2da082d585033a2177286" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/5/b522d51ee276e4ebf8c316c21ace53fa3d3abadf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/bee38e60918843a78a7c454c3be72e4882df2419" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/2/c236f2856cfc52af4c77ffa097e5a732d096ffbb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/2/c25b8e895f09367c471b36c8c994c549ba4663e8" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/9/c9322ce81ac294506bcf9ea8861c3fe7dbb0d417" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/9/c9698a8414c8349a4472ff62db0ae89f3ec6d46d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/c/ccf678498c260243de66c70ce1be2e94851d47ff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/2/d2ae43adf15229a1cbe15e328e3425fd125350f0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/2/d2bdebbb65e398b9e2e21899afe69506932910f6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/2/d2e6b32e587c161b9ea124c3a55aa1dd8d820bb6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/3/d397f7f2344f72140644740f937de2fa5bcc3965" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/3/d3a38c2a17b0bf891a3ea6cd44709a9f5c6938c9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/6/d60c6dcdacc504082f910bf29aae1fab9496632e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/8/d88695309fe65fa5fbd1bb8ea0e6e333388a5973" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d94240af7b185bac1b1b44370b3c037c0588959b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d9535a136ddcf7c9fcc541ba0089227a950f7f11" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/b/dbf27caad806efed0ddd6587171df5e0409349ed" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/df8ad825e6b21fa9713db71a8de7aba3f7e38e43" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e3669714584ce88cb3630862949558fbbc0c3dd3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e38e5d1530999576b77deacc6ef252cd4d51ea21" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e400918b9caed238871063a00203c303ab2b80ec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/8/e8c4fccb890de7613208325ed3a363b9f6c33056" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/9/e9b471671f7ff4991dcc6b7c31aa62cac0f78431" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/a/ea66808cad0de28062ad05a2f8aca4fbf365c93c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/b/eb5fe0ec840759df8d0e8f490d00d8e28c335d3d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/b/ebc0ca2e519fe73c85efc75b8c4108bf280da7fe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/b/ebeae6f62b143f4779796fed3261d91c021658c9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/d/ed34b6a2194f906a26ef6fbd8ce38fc7ba3c2dfa" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f1829e21467edb720ca520c3746cbaef9677adab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/3/f31c08ace52f81032268c69e376e3ee854b57606" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/5/f5f313116d7b498c90b055a44d08711afe9bae20" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/b/fb31cbad1ae12dff2b06eda2beabb1939c908963" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/c/fc5e52a54a994201add729a8fab18056f7125eac" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/f/ff0e20e34dab57e350bbe239291ad6038e6ce92c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/f/ff7dbfc5c4e17886c42a154b21939de4b871c9eb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/love-website.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/java/com/wangx/love/lovewebsite/LoveWebsiteApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/java/com/wangx/love/lovewebsite/controller/into.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/17.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/Happybirthdayss.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/SecondLucky/js/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/SecondLucky/js/three.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/ThirdFelicity/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/index_files/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/index_files/functions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/index_files/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/index_files/jscex-async-powerpack.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/index_files/jscex-async.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/index_files/jscex-builderbase.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/index_files/jscex-jit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/index_files/jscex-parser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/index_files/love.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/xc/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/xc/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/xc/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/xc/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/xc/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/实验一  简单网络命令的使用.doc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/轻音乐.flac" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/页面2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/static/页面4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/love-website/src/main/resources/templates/玫瑰花.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8004/microservicecloud-provider-payment-8004.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8004/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8004/src/main/java/com/wangx/springcloud/PaymentMain8004.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8004/src/main/java/com/wangx/springcloud/controller/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8004/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/1/01b7ca0b663532b24bdfd2b35539451aa6d1b75a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/09d32ea42978181d1d37d95aa5a2ff5bf9379647" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8a88c940f158dc18f405ab24138fdd7e7efae443" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/d/8d2c6ce4fc35669887c83e7039edd8661a2b487c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/0/905aeb745c7a6ef9c82a17836a448f369880d18c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/3/a33d9c7256b15d3603f072e004608cd8a9215b67" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/be20ba69c2cfdb1128a86567ee6267b358c7ff5b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/dada0fc1871f73907058e77b88215e48850bda3e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/1/e14a738205445d51b1f3918abd64d85e6872ade1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/9/e97be6b0f3148a2d91d1d541bab7757d24b6e1ed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithm/src/designpattern/singletonpattern/Singleton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithm/src/designpattern/singletonpattern/run.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-feign-order-80/microservicecloud-consumer-feign-order-80.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-feign-order-80/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-feign-order-80/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_16.xml" afterDir="false" />
@@ -381,36 +276,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_springloaded_unknown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_4_RELEASE.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/d/1d62a38a49b71402d2d1a304bf81453f172a04b2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/9/29eae1942cf358d4b19da021760c00310270e406" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4bb6a14092733f1336d678afee27988dfaad5226" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/f/4f334aab30b2419313c61f22e422047442d4e05b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/1/51840f4f657508bf7858f7607c79e3e6694ab67f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/a/9a2dbe3b76b1fc570da899381e8f77378dce9b2e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/6/a6144372474405fc5d4e63209f15bea4daf0df08" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/e/aec4a8785393b5dfe8b5894a12f079d94407d4b5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/d/bd02b6f130f2aae4aa478fe1a49f4fc0ecd516d4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/d/bd36ad84afc3c7ffe8228e47ec7b914a0cf10b5e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/f/bf95be184c092551b247c60a975454c1e2e44b4a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/0/e09db0e5072197e597252964e5eba3cff92c33e7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/6/e636e7b75ec916bc2f2dd9a5b0fc4f0983b63233" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/090c3731259d605976afbf4378073827fa11bfec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/c/0cad6b0ae1820147900bfe14a3db9c6557330838" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/19f711193961b8742c97b479f5ca2935dea3b955" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/19f711193961b8742c97b479f5ca2935dea3b955" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e400918b9caed238871063a00203c303ab2b80ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/b/fb31cbad1ae12dff2b06eda2beabb1939c908963" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algorithm/META-INF/algorithm.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algorithm/Sort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practiceprojcet/sys-service/src/main/java/com/wangx/sys/controller/SysLoginUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/practiceprojcet/sys-service/src/main/java/com/wangx/sys/controller/SysLoginUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practiceprojcet/sys-service/src/main/java/com/wangx/sys/serviceimpl/SysLoginUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/practiceprojcet/sys-service/src/main/java/com/wangx/sys/serviceimpl/SysLoginUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud/microservicecloud/Note.md" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud/microservicecloud/Note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/1/0181bc64587c6b5fd57e78a846f2b83db3bade31" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-api/target/microservicecloud-api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/1/01ef5c190e94718297d367786b43c12bc6190750" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-order-80/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-consumer-order-80/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-eureka-server-7001/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-eureka-server-7001/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8001/src/main/java/com/wangx/springcloud/PaymentMain8001.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8001/src/main/java/com/wangx/springcloud/PaymentMain8001.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8001/src/main/java/com/wangx/springcloud/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8001/src/main/java/com/wangx/springcloud/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8001/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8001/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8002/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8002/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8002/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8002/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud/microservicecloud/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud/microservicecloud/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm/src/designpattern/DesignPatternModeNote.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm/src/designpattern/DesignPatternModeNote.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -420,12 +293,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="spring-beans.schema" />
         <option value="Tag Library Descriptor" />
         <option value="Enum" />
         <option value="Kotlin File" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -481,7 +354,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/springcloud/microservicecloud/microservicecloud-provider-payment-8004/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/algorithm/src/designpattern/factorypattern/factorymethodpattern" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -503,18 +376,18 @@
       <recent name="designpattern.strategymode.interface" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\learning\algorithm\src\designpattern\factorypattern\factorymethodpattern" />
       <recent name="D:\workspace\learning\springcloud\microservicecloud\microservicecloud-provider-payment-8004\src\main\resources" />
       <recent name="D:\workspace\learning\springcloud\microservicecloud\microservicecloud-provider-payment-8002\src\main\java" />
       <recent name="D:\workspace\learning\springcloud\microservicecloud\microservicecloud-provider-payment-8002\src\main\resources" />
       <recent name="D:\workspace\learning\springcloud\microservicecloud\microservicecloud-consumer-order-80\src\main\resources" />
-      <recent name="D:\workspace\learning\springcloud\microservicecloud\microservicecloud-eureka-server-7002\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="designpattern.factorypattern.abstractfactorypattern" />
       <recent name="com.wangx.base" />
       <recent name="com.wangx.Base" />
       <recent name="com.wangx.common.until.validator" />
       <recent name="com.wangx.sys.validator" />
-      <recent name="com.wangx.constant" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\workspace\learning\algorithm\src\designpattern" />
@@ -529,13 +402,26 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PaymentMain8004">
+  <component name="RunManager" selected="Application.run (1)">
     <configuration name="run (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="designpattern.strategypattern.character.run" />
+      <option name="MAIN_CLASS_NAME" value="designpattern.singletonpattern.run" />
       <module name="algorithm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="designpattern.strategypattern.character.*" />
+          <option name="PATTERN" value="designpattern.singletonpattern.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="designpattern.factorypattern.run" />
+      <module name="algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="designpattern.factorypattern.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -597,14 +483,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentMain8004" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="PaymentMain8004" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="microservicecloud-provider-payment-8004" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.wangx.springcloud.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.wangx.springcloud.PaymentMain8004" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -625,23 +505,24 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.run (1)" />
+      <item itemvalue="Application.run" />
       <item itemvalue="Spring Boot.WebserviceApplication" />
       <item itemvalue="Spring Boot.SysApplication" />
       <item itemvalue="Spring Boot.OrderMain80" />
       <item itemvalue="Spring Boot.PaymentMain8002" />
+      <item itemvalue="Spring Boot.PaymentMain8004" />
       <item itemvalue="Spring Boot.PaymentMain8001" />
       <item itemvalue="Spring Boot.EurekaMain7001" />
       <item itemvalue="Spring Boot.EurekaMain7002" />
-      <item itemvalue="Spring Boot.PaymentMain8004" />
+      <item itemvalue="Application.run (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.PaymentMain8004" />
-        <item itemvalue="Spring Boot.PaymentMain8001" />
-        <item itemvalue="Spring Boot.EurekaMain7001" />
-        <item itemvalue="Spring Boot.EurekaMain7002" />
         <item itemvalue="Application.run (1)" />
+        <item itemvalue="Application.run" />
+        <item itemvalue="Spring Boot.PaymentMain8001" />
+        <item itemvalue="Spring Boot.EurekaMain7002" />
+        <item itemvalue="Spring Boot.EurekaMain7001" />
       </list>
     </recent_temporary>
   </component>
@@ -769,7 +650,16 @@
       <workItem from="1588123594085" duration="75000" />
       <workItem from="1588557169618" duration="3243000" />
       <workItem from="1588560449000" duration="11000" />
-      <workItem from="1588560471919" duration="9227000" />
+      <workItem from="1588560471919" duration="15530000" />
+      <workItem from="1588727985134" duration="114000" />
+      <workItem from="1588742430014" duration="4352000" />
+      <workItem from="1588748704409" duration="3866000" />
+      <workItem from="1588832815379" duration="4276000" />
+      <workItem from="1588902204626" duration="9214000" />
+      <workItem from="1588941819631" duration="657000" />
+      <workItem from="1589110578911" duration="4969000" />
+      <workItem from="1589203358574" duration="1625000" />
+      <workItem from="1589248576197" duration="12843000" />
     </task>
     <task id="LOCAL-00001" summary="Eureka Pom文件调整(未完成依旧报错)">
       <created>1583822534933</created>
@@ -932,7 +822,49 @@
       <option name="project" value="LOCAL" />
       <updated>1587632559077</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="新增8004项目已注册上zookeeper上(新增项目)">
+      <created>1588669216961</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1588669216961</updated>
+    </task>
+    <task id="LOCAL-00025" summary="修改">
+      <created>1588669430513</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1588669430513</updated>
+    </task>
+    <task id="LOCAL-00026" summary="新建80调用zookeeper项目(新增)">
+      <created>1588742833177</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1588742833177</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Ribbon应用示例代码(新增)&#10;新增Note笔记内容(新增)">
+      <created>1588833035507</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1588833035507</updated>
+    </task>
+    <task id="LOCAL-00028" summary="新增简单工厂模式,工厂方法面模式示例代码(新增)&#10;修改ribbon负载均衡模式示例代码(新增)&#10;SpringCloud笔记添加(添加)">
+      <created>1589248930150</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1589248930150</updated>
+    </task>
+    <task id="LOCAL-00029" summary="设计模式:新增抽象工厂模式示例代码(新增)">
+      <created>1589262043338</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1589262043338</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -952,9 +884,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Eureka Pom文件调整(未完成依旧报错)" />
-    <MESSAGE value="整合EurekaServer完成" />
-    <MESSAGE value="栈练习(新增)" />
     <MESSAGE value="数组模拟链表(新增)" />
     <MESSAGE value="链表注释修改,体现链表思路(新增注释)" />
     <MESSAGE value="SpringCloud项目修改(更新为2020最新教学视频内容)" />
@@ -974,7 +903,13 @@
     <MESSAGE value="1.新增策略模式代码中的说明注释(新增)&#10;2.新增观察模式的一种实现(新增)&#10;3.新增7002,7001两个eureka工程(新增)" />
     <MESSAGE value="新增8002服务提工作模块(新增项目模块)&#10;处理访问服务名无法调用服务问题(问题修改)" />
     <MESSAGE value="新增装饰者模式(新增)" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增装饰者模式(新增)" />
+    <MESSAGE value="新增8004项目已注册上zookeeper上(新增项目)" />
+    <MESSAGE value="修改" />
+    <MESSAGE value="新建80调用zookeeper项目(新增)" />
+    <MESSAGE value="Ribbon应用示例代码(新增)&#10;新增Note笔记内容(新增)" />
+    <MESSAGE value="新增简单工厂模式,工厂方法面模式示例代码(新增)&#10;修改ribbon负载均衡模式示例代码(新增)&#10;SpringCloud笔记添加(添加)" />
+    <MESSAGE value="设计模式:新增抽象工厂模式示例代码(新增)" />
+    <option name="LAST_COMMIT_MESSAGE" value="设计模式:新增抽象工厂模式示例代码(新增)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="466" y="7" key="#Inspections" timestamp="1582376836296">
@@ -1003,11 +938,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="704" y="361" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1583482154581" />
-    <state x="669" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1587027446719">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="446" y="55" key="#com.intellij.ide.util.MemberChooser" timestamp="1589253204931">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="669" y="84" key="#com.intellij.ide.util.MemberChooser/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587027446719" />
-    <state x="446" y="55" key="#com.intellij.ide.util.MemberChooser/0.0.1280.689@0.0.1280.689" timestamp="1584447281027" />
+    <state x="446" y="55" key="#com.intellij.ide.util.MemberChooser/0.0.1280.689@0.0.1280.689" timestamp="1589253204931" />
     <state x="419" y="130" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1586420955533">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -1016,10 +951,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="640" y="260" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587545376882" />
-    <state x="603" y="450" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1587006199395">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="322" y="295" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1588910063254">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="603" y="450" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587006199395" />
+    <state x="603" y="450" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588833525233" />
+    <state x="322" y="295" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.689@0.0.1280.689" timestamp="1588910063254" />
     <state x="497" y="384" width="926" height="292" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1586768142006">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -1028,99 +964,100 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="596" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1586767932161" />
-    <state x="690" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587027426618">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="460" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589263731282">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="690" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587027426618" />
-    <state x="460" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.689@0.0.1280.689" timestamp="1584446886490" />
+    <state x="460" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.689@0.0.1280.689" timestamp="1589263731282" />
     <state x="396" y="48" key="#xdebugger.evaluate" timestamp="1585056237669">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="-1484" y="105" key="#xdebugger.evaluate/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1585013527373" />
     <state x="396" y="48" key="#xdebugger.evaluate/0.0.1280.689@0.0.1280.689" timestamp="1585056237669" />
-    <state x="82" y="119" key="CommitChangelistDialog2" timestamp="1587632550385">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1589262106923">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="82" y="119" key="CommitChangelistDialog2/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587632550385" />
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1584444825585" />
+    <state x="82" y="119" key="CommitChangelistDialog2/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588833116605" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1589262106923" />
     <state width="707" height="668" key="DebuggerActiveHint" timestamp="1586246991918">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="707" height="668" key="DebuggerActiveHint/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1586246991918" />
     <state width="471" height="438" key="DebuggerActiveHint/0.0.1280.689@0.0.1280.689" timestamp="1585056525734" />
-    <state x="140" y="142" width="1643" height="769" key="DiffContextDialog" timestamp="1587632183669">
+    <state x="140" y="142" width="1643" height="769" key="DiffContextDialog" timestamp="1588742457733">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="140" y="142" width="1643" height="769" key="DiffContextDialog/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587632183669" />
-    <state x="93" y="93" width="1095" height="504" key="DiffContextDialog/0.0.1280.689@0.0.1280.689" timestamp="1582639141949" />
+    <state x="140" y="142" width="1643" height="769" key="DiffContextDialog/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588742457733" />
+    <state x="93" y="93" width="1095" height="504" key="DiffContextDialog/0.0.1280.689@0.0.1280.689" timestamp="1588669454537" />
     <state x="740" y="53" key="FileChooserDialogImpl" timestamp="1587017444919">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="53" key="FileChooserDialogImpl/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587017444919" />
     <state x="493" y="35" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1585054705803" />
-    <state x="764" y="366" key="GrepConsoleSound" timestamp="1586390356846">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="509" y="240" key="GrepConsoleSound" timestamp="1589115298058">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="764" y="366" key="GrepConsoleSound/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1586390356846" />
-    <state width="1021" height="375" key="GridCell.Tab.0.bottom" timestamp="1588580878809">
+    <state x="509" y="240" key="GrepConsoleSound/0.0.1280.689@0.0.1280.689" timestamp="1589115298058" />
+    <state width="1235" height="235" key="GridCell.Tab.0.bottom" timestamp="1589264441031">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1563" height="275" key="GridCell.Tab.0.bottom/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587889654675" />
-    <state width="1021" height="375" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1588580878809" />
-    <state width="1021" height="375" key="GridCell.Tab.0.center" timestamp="1588580878809">
+    <state width="1563" height="621" key="GridCell.Tab.0.bottom/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588755169549" />
+    <state width="1235" height="235" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1589264441031" />
+    <state width="1235" height="235" key="GridCell.Tab.0.center" timestamp="1589264441031">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1563" height="275" key="GridCell.Tab.0.center/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587889654675" />
-    <state width="1021" height="375" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1588580878809" />
-    <state width="1021" height="375" key="GridCell.Tab.0.left" timestamp="1588580878808">
+    <state width="1563" height="621" key="GridCell.Tab.0.center/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588755169549" />
+    <state width="1235" height="235" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1589264441031" />
+    <state width="1235" height="235" key="GridCell.Tab.0.left" timestamp="1589264441031">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1563" height="275" key="GridCell.Tab.0.left/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587889654675" />
-    <state width="1021" height="375" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1588580878808" />
-    <state width="1021" height="375" key="GridCell.Tab.0.right" timestamp="1588580878809">
+    <state width="1563" height="621" key="GridCell.Tab.0.left/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588755169549" />
+    <state width="1235" height="235" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1589264441031" />
+    <state width="1235" height="235" key="GridCell.Tab.0.right" timestamp="1589264441031">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1563" height="275" key="GridCell.Tab.0.right/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587889654675" />
-    <state width="1021" height="375" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1588580878809" />
-    <state width="1021" height="375" key="GridCell.Tab.1.bottom" timestamp="1588580878809">
+    <state width="1563" height="621" key="GridCell.Tab.0.right/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588755169549" />
+    <state width="1235" height="235" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1589264441031" />
+    <state width="971" height="374" key="GridCell.Tab.1.bottom" timestamp="1589116959526">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1563" height="275" key="GridCell.Tab.1.bottom/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587889654676" />
-    <state width="1021" height="375" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1588580878809" />
-    <state width="1021" height="375" key="GridCell.Tab.1.center" timestamp="1588580878809">
+    <state width="1563" height="621" key="GridCell.Tab.1.bottom/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588755169549" />
+    <state width="971" height="374" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1589116959526" />
+    <state width="971" height="374" key="GridCell.Tab.1.center" timestamp="1589116959526">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1563" height="275" key="GridCell.Tab.1.center/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587889654675" />
-    <state width="1021" height="375" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1588580878809" />
-    <state width="1021" height="375" key="GridCell.Tab.1.left" timestamp="1588580878809">
+    <state width="1563" height="621" key="GridCell.Tab.1.center/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588755169549" />
+    <state width="971" height="374" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1589116959526" />
+    <state width="971" height="374" key="GridCell.Tab.1.left" timestamp="1589116959526">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1563" height="275" key="GridCell.Tab.1.left/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587889654675" />
-    <state width="1021" height="375" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1588580878809" />
-    <state width="1021" height="375" key="GridCell.Tab.1.right" timestamp="1588580878809">
+    <state width="1563" height="621" key="GridCell.Tab.1.left/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588755169549" />
+    <state width="971" height="374" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1589116959526" />
+    <state width="971" height="374" key="GridCell.Tab.1.right" timestamp="1589116959526">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1563" height="275" key="GridCell.Tab.1.right/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587889654676" />
-    <state width="1021" height="375" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1588580878809" />
-    <state width="1021" height="531" key="GridCell.Tab.2.bottom" timestamp="1588580202265">
-      <screen x="0" y="0" width="1280" height="689" />
+    <state width="1563" height="621" key="GridCell.Tab.1.right/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588755169549" />
+    <state width="971" height="374" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1589116959526" />
+    <state width="1563" height="621" key="GridCell.Tab.2.bottom" timestamp="1588746069475">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1565" height="277" key="GridCell.Tab.2.bottom/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1586431508382" />
+    <state width="1563" height="621" key="GridCell.Tab.2.bottom/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588746069475" />
     <state width="1021" height="531" key="GridCell.Tab.2.bottom/0.0.1280.689@0.0.1280.689" timestamp="1588580202265" />
-    <state width="1021" height="531" key="GridCell.Tab.2.center" timestamp="1588580202265">
-      <screen x="0" y="0" width="1280" height="689" />
+    <state width="1563" height="621" key="GridCell.Tab.2.center" timestamp="1588746069475">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1565" height="277" key="GridCell.Tab.2.center/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1586431508382" />
+    <state width="1563" height="621" key="GridCell.Tab.2.center/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588746069475" />
     <state width="1021" height="531" key="GridCell.Tab.2.center/0.0.1280.689@0.0.1280.689" timestamp="1588580202265" />
-    <state width="1021" height="531" key="GridCell.Tab.2.left" timestamp="1588580202265">
-      <screen x="0" y="0" width="1280" height="689" />
+    <state width="1563" height="621" key="GridCell.Tab.2.left" timestamp="1588746069475">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1565" height="277" key="GridCell.Tab.2.left/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1586431508381" />
+    <state width="1563" height="621" key="GridCell.Tab.2.left/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588746069475" />
     <state width="1021" height="531" key="GridCell.Tab.2.left/0.0.1280.689@0.0.1280.689" timestamp="1588580202265" />
-    <state width="1021" height="531" key="GridCell.Tab.2.right" timestamp="1588580202265">
-      <screen x="0" y="0" width="1280" height="689" />
+    <state width="1563" height="621" key="GridCell.Tab.2.right" timestamp="1588746069475">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1565" height="277" key="GridCell.Tab.2.right/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1586431508382" />
+    <state width="1563" height="621" key="GridCell.Tab.2.right/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588746069475" />
     <state width="1021" height="531" key="GridCell.Tab.2.right/0.0.1280.689@0.0.1280.689" timestamp="1588580202265" />
     <state x="539" y="66" key="NewModule_or_Project.wizard" timestamp="1583484255819">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -1144,11 +1081,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="744" y="441" key="VCS.ChangelistChooser/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1584059711362" />
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1587632571293">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="76" y="49" key="Vcs.Push.Dialog.v2" timestamp="1589262346424">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1587632571293" />
-    <state x="368" y="157" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1583844186016" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588833125328" />
+    <state x="76" y="49" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1589262346424" />
     <state x="188" y="186" width="1620" height="746" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1583483790828">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -1175,16 +1112,16 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="729" y="243" key="com.intellij.testIntegration.createTest.CreateTestDialog/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1585191636638" />
-    <state x="100" y="130" width="1160" height="915" key="find.popup" timestamp="1586393251018">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="254" y="45" width="930" height="600" key="find.popup" timestamp="1588942399021">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="100" y="130" width="1160" height="915" key="find.popup/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1586393251018" />
-    <state x="254" y="45" width="773" height="600" key="find.popup/0.0.1280.689@0.0.1280.689" timestamp="1584264309540" />
-    <state x="41" y="118" width="1224" height="571" key="new project wizard" timestamp="1588561503227">
+    <state x="100" y="130" width="1160" height="915" key="find.popup/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1588743088897" />
+    <state x="254" y="45" width="930" height="600" key="find.popup/0.0.1280.689@0.0.1280.689" timestamp="1588942399021" />
+    <state x="56" y="86" width="1224" height="571" key="new project wizard" timestamp="1589205260188">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="412" y="236" key="new project wizard/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1586772034802" />
-    <state x="41" y="118" width="1224" height="571" key="new project wizard/0.0.1280.689@0.0.1280.689" timestamp="1588561503227" />
+    <state x="56" y="86" width="1224" height="571" key="new project wizard/0.0.1280.689@0.0.1280.689" timestamp="1589205260188" />
     <state x="483" y="404" width="716" height="306" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1587017447584">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -1193,11 +1130,11 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="297" y="153" key="run.anything.popup/0.0.1280.689@0.0.1280.689" timestamp="1584447229602" />
-    <state x="971" y="14" width="670" height="58" key="search.everywhere.popup" timestamp="1585203247515">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="309" y="67" width="672" height="678" key="search.everywhere.popup" timestamp="1589251156822">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="971" y="14" width="670" height="58" key="search.everywhere.popup/-1920.0.1280.700/0.0.1920.1050@0.0.1920.1050" timestamp="1585203247515" />
-    <state x="647" y="9" width="672" height="678" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1584263071640" />
+    <state x="309" y="67" width="672" height="678" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1589251156822" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
