@@ -215,5 +215,52 @@ zookeeper节点区分<br>
     2. postForObject方法/postForEntity方法
     3. GET请求方法
     4. POST请求方法<br>
+## 其他的均衡模式
+![](.Note_images/e6850498.png)
+### 如何替换图片中的模式
+配置详情看microservicecloud-consumer-order-80代码<br>
+    
+    官方文档警告:(默认模式是轮循)
+        这个自定义类不能放在@ComponentScan所所扫描的当前包下以及子包下,
+        否则我们自定义的这个配置类就会被所有的Ribbon客户端所共享,达不到特殊化定制的目的了.
 
+### 第一步:修改调用者项目(新增配置类)
+遵守上一条的规则
+```java
+/**
+ * @author: wangxu
+ * @date: 2020/5/10 19:54
+ */
+@Configuration
+public class MySelfRule {
+    @Bean
+    public IRule myRule(){
+        //定义为随机
+        return new RandomRule();
+    }
+}
+```
+### 第二部:主启动类添加注解
+```java
+/**
+ * @author: wangxu
+ * @date: 2020/3/24 20:16
+ */
+@SpringBootApplication
+@Slf4j
+@EnableEurekaClient
+//name:要访问的服务,configuration:负载均衡模式的配置类
+@RibbonClient(name = "microservicecloud-payment-service",configuration = MySelfRule.class)
+public class OrderMain80 {
+    public static void main(String[] args) {
+        SpringApplication.run(OrderMain80.class, args);
+        log.info(">>>>>>启动完成<<<<<<<");
+    }
+}
+```
+## 负载均衡轮循算法
+![](.Note_images/5997204d.png)
+### 原理(未完待续,知识储备量不足JUC高并发编程--CAS---自旋锁)
+
+# OpenFegin
     
