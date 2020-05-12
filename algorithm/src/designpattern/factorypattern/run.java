@@ -1,5 +1,6 @@
 package designpattern.factorypattern;
 
+import designpattern.factorypattern.abstractfactorypattern.pizzastore.WangxxPizzaStore;
 import designpattern.factorypattern.factorymethodpattern.FactoryMethodPizzaStore;
 import designpattern.factorypattern.factorymethodpattern.WangxPizzaStore;
 
@@ -14,7 +15,11 @@ public class run {
         pizzaStore.orderPizza("wangxx");*/
 
         //工厂方法测试
-        FactoryMethodPizzaStore pizzaStore = new WangxPizzaStore();
-        pizzaStore.orderPizza("wangxx");
+        //FactoryMethodPizzaStore pizzaStore = new WangxPizzaStore();
+        //pizzaStore.orderPizza("wangxx");
+
+        //抽象工厂测试
+        WangxxPizzaStore pizzaStore = new WangxxPizzaStore();
+        pizzaStore.orderPizza("AbstractWangxxPizza");
     }
 }
