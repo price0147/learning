@@ -29,7 +29,7 @@ public class OrderFeignController {
         return commonResult;
     }
 
-    @GetMapping(value = "/feign/timeout")
+    @GetMapping(value = "feign/timeout")
     public String paymentFeignTimeout(){
         //openfeign->riddon,客户端一般默认等待一秒钟
         return paymentFeignService.paymentFeignTimeout();
