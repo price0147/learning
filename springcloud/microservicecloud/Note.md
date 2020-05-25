@@ -339,3 +339,389 @@ logging:
     类比保险丝达到最大服务访问后,直接拒绝方法,拉闸限电,然后调用服务降级的方法并返回友好提示
 ## 服务限流
     秒杀高并发等操作,严禁一窝蜂的过来拥挤,大家排队,一秒钟N个,有序进行
+## 常见错误
+### 问题
+1. 超时导致服务器变慢(转圈) 超时不再等待
+2. 出错(宕机或程序运行出错) 出错要有兜底
+### 解决
+1. 对方服务(8001)超时了,调用者(80)不能一直卡死等待,必须有服务降级
+2. 对方服务(8001)宕机了,调用者(80)不能一直卡死等待,必须有服务降级
+3. 对方服务(8001)OK了,调用者(80)自己出故障或有自我要求(自己等待时间小于服务提供者),自己处理降级
+
+## 服务降级示例
+### 降级配置
+#### 服务端8001
+第一步:服务类加注解,创建回调方法<br>
+注解: @HystrixCommand 在业务类上加上这个注解实现服务降级设置
+```java
+
+    package com.wangx.springcloud.service;
+    
+    import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+    import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+    import org.springframework.stereotype.Service;
+    
+    import java.util.concurrent.TimeUnit;
+    
+    /**
+     * @author: wangxu
+     * @date: 2020/5/16 13:37
+     */
+    @Service
+    public class PaymentService {
+        //在业务类上加上这个注解实现服务降级设置
+    
+        /**
+         * fallbackMethod:如果这个方法出事了,就执行paymentInfo_TimeOutHandler这个方法进行兜底
+         */
+        @HystrixCommand(fallbackMethod = "paymentInfo_TimeOutHandler", commandProperties = {
+                //设置超时时错误的时间
+                @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")
+        })
+        //回调方法
+        public String paymentInfo_TimeOut(Integer id) {
+    
+            int time = 5;
+            //报错语句
+            int age = 10/0;
+            /*try {
+                //暂停3秒钟
+                TimeUnit.SECONDS.sleep(time);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }*/
+            return "线程池: " + Thread.currentThread().getName() + " paymentInfo_TimeOut,id: " + id + "\t" + "O(∩_∩)O哈哈~" + "耗时(秒): " + time;
+        }
+    
+        public String paymentInfo_TimeOutHandler(Integer id){
+            return "线程池: " + Thread.currentThread().getName() + " 系统繁忙或者运行报错,请稍后重试,id: " + id + "\t" + "o(╥﹏╥)o";
+        }
+    
+    }
+```
+第二步:主启动类添加启动断路器注解<br>
+注解:@EnableCircuitBreaker 启动断路器功能
+```java
+package com.wangx.springcloud;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+/**
+ * @author: wangxu
+ * @date: 2020/5/16 13:28
+ */
+@SpringBootApplication
+@EnableDiscoveryClient
+@Slf4j
+//启动断路器功能
+@EnableCircuitBreaker
+public class PaymentHystrixMain8001 {
+    public static void main(String[] args) {
+        SpringApplication.run(PaymentHystrixMain8001.class, args);
+        log.info(">>>>>>启动完成<<<<<<<");
+    }
+}
+
+```
+#### 客户端80
+第一步:服务类加注解,创建回调方法<br>
+```java
+/**
+ * @author: wangxu
+ * @date: 2020/5/16 14:27
+ */
+@RestController
+@Slf4j
+@RequestMapping(value = "/consumer/payment")
+public class OrderHystixController {
+    @Resource
+    PaymentHystrixService paymentHystrixService;
+
+    /**
+     * fallbackMethod:如果这个方法出事了,就执行paymentInfo_TimeOutHandler这个方法进行兜底
+     */
+    @HystrixCommand(fallbackMethod = "paymentInfo_TimeOutHandler", commandProperties = {
+            //设置超时时错误的时间
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
+    })
+    @GetMapping(value = "hystrix/timeout/{id}")
+    public String paymentTimeOut_OK(@PathVariable("id") int id) {
+        String result = paymentHystrixService.paymentInfo_TimeOut(id);
+        log.info("#####result: " + result);
+        return result;
+    }
+
+    public String paymentInfo_TimeOutHandler(int id){
+        return "线程池: " + Thread.currentThread().getName() + " 系统80繁忙或者运行报错,请稍后重试,id: " + id + "\t" + "o(╥﹏╥)o";
+    }
+
+}
+```
+第二步:主启动类添加启动断路器注解<br>
+注解: 启动断路器功能和@EnableCircuitBreaker功能是一样的.
+```java
+/**
+ * @author: wangxu
+ * @date: 2020/5/16 14:21
+ */
+@SpringBootApplication
+@EnableFeignClients
+@Slf4j
+//启动断路器功能这个位置和@EnableCircuitBreaker作用是一样的
+@EnableHystrix
+public class OrderHystrixMain80 {
+    public static void main(String[] args) {
+        SpringApplication.run(OrderHystrixMain80.class, args);
+        log.info(">>>>>>启动完成<<<<<<<");
+    }
+}
+```
+#### 配置全局fallback(回调方法)
+**如果每一个业务方法对应一个兜底的方法,会造成代码膨胀**<br>
+@DefaultProperties注解:配置全局fallback方法<br>
+如果出现错误调用全局fallback方法,如果不加这个注解,将不会调用任何回调方法<br>
+注意:如果这个注解没有加fallbackMethod参数,就将全局回调方法作为回调方法,如果加了fallbackMethod参数,就用对应的方法作为回调方法
+
+```java
+/**
+ * @author: wangxu
+ * @date: 2020/5/16 14:27
+ */
+@RestController
+@Slf4j
+@RequestMapping(value = "/consumer/payment")
+//配置全局fallback方法,如果没有发现方法上面的@HystrixCommand,就执行本标签里的方法,如果有@HystrixCommand,就执行他对应的方法
+@DefaultProperties(defaultFallback = "payment_Global_FallbackMethod")
+public class OrderHystixController {
+    @Resource
+    PaymentHystrixService paymentHystrixService;
+
+    @GetMapping(value = "hystrix/ok/{id}")
+    public String paymentInfo_OK(@PathVariable("id") int id) {
+        String result = paymentHystrixService.paymentInfo_OK(id);
+        log.info("#####result: " + result);
+        return result;
+    }
+
+    /**
+     * fallbackMethod:如果这个方法出事了,就执行paymentInfo_TimeOutHandler这个方法进行兜底
+     * 如果出现错误调用全局fallback方法,如果不加这个注解,将不会调用任何回调方法
+     * 注意:如果这个注解没有加fallbackMethod参数,就将全局回调方法作为回调方法,如果加了fallbackMethod参数,就用对应的方法作为回调方法)
+     */
+    @HystrixCommand(fallbackMethod = "paymentInfo_TimeOutHandler", commandProperties = {
+            //设置超时时错误的时间
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
+    })
+    @GetMapping(value = "hystrix/timeout/{id}")
+    public String paymentInfo_TimeOut(@PathVariable("id") int id) {
+        String result = paymentHystrixService.paymentInfo_TimeOut(id);
+        log.info("#####result: " + result);
+        return result;
+    }
+
+    public String paymentInfo_TimeOutHandler(int id){
+        return "线程池: " + Thread.currentThread().getName() + " 系统80繁忙或者运行报错,请稍后重试,id: " + id + "\t" + "o(╥﹏╥)o";
+    }
+
+    //下面是全局fallback
+    public String payment_Global_FallbackMethod(){
+        return "Global异常处理信息,请稍后再试,╮(╯▽╰)╭";
+    }
+}
+```
+## 服务熔断(三种状态:关闭,半开,开)
+熔断机制:是应对雪崩效应的一种微服务链路保护机制,当扇出链路的某个微服务出错不可用或者响应太长时间,会进行服务的降级
+,进而熔断该节点微服务的调用,快速返回错误信息,当检测到该节点微服务调用响应正常后,回复调用信息.
+
+在Spring Cloud框架里,熔断机制通过Hystrix实现,Hystrix会监控微服务间调用的状况,
+当失败的调用到一定阈值,缺省是5秒内20次调用失败,就会启动熔断机制,熔断机制的注解是@HystrixCommand
+
+### 熔断器示例
+```java
+/**
+ * @author: wangxu
+ * @date: 2020/5/16 13:37
+ */
+@Service
+public class PaymentService {
+    /**
+     * =====================服务熔断示例代码
+     */
+    @HystrixCommand(fallbackMethod = "paymentCircuitBreaker_fallback",commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled",value = "true"),//是否开启断路器
+            //下面配置总体10秒钟内访问10次如果失败率达百分之60则跳闸,这里面的所有属性都在HystrixCommandProperties抽象类里面,这里面还提供了很多属性的默认值.
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "10"),//请求次数
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "10000"),//时间窗口期
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "60")//失败率达到多少后跳闸
+    })
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        if(id < 0){
+            throw new RuntimeException("*****id 不能为负数");
+        }
+        String serialNumber = IdUtil.simpleUUID();
+
+        return Thread.currentThread().getName() + "\t 调用成功,流水号: " + serialNumber;
+    }
+
+    public String paymentCircuitBreaker_fallback(@PathVariable("id") Integer id){
+        return "id 不能负数,请稍后重试,╮(╯▽╰)╭ id:" + id;
+    }
+}
+```
+### 熔断器检测流程
+    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "10"),//请求次数
+    1.请求次数是否达到配置要求
+    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "60")//失败率达到多少后跳闸
+    2.报错百分比是否达到设置值
+    3.如果达到设置报错百分比,短路器将从close变为open
+    4.此时所有的请求都无法正常响应
+    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "60")//失败率达到多少后跳闸
+    5.当时间窗口期过了以后,系统会尝试接受请求,如果请求失败,短路器依然是开启转台直到下一个时间窗口期结束,在进行测试.
+    如果成功了断路器将改为关闭状态.
+    
+    断路器的三种状态
+        关闭状态（Closed）：断路器关闭，流量可以正常进入
+        打开/熔断状态（Open）：断路器打开，即circuit-breaker熔断状态，拒绝所有流量，走降级逻辑
+        半开状态（Half-Open）：断路器半开状态，Open状态过一段时间（默认5s）转为此状态来尝试恢复。此状态时：允许有且仅一个请求进入，一旦请求成功就关闭断路器。请求失败就到Open状态（这样再过5秒才能转到半开状态）
+        熔断器的状态管理，可以用状态机来实现：
+## 服务监控(9001项目)
+1. 引包
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>microservicecloud</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>microservicecloud-consumer-hystrix-dashhoard-9001</artifactId>
+
+    <dependencies>
+        <!--Hystrix的仪表盘图形化界面-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+```
+2. 主启动类添加新注解@EnableHystrixDashboard
+```java
+@SpringBootApplication
+//开启Hystrix的仪表盘图形化界面
+@EnableHystrixDashboard
+public class HystrixDashboardMain9001 {
+    public static void main(String[] args) {
+        SpringApplication.run(HystrixDashboardMain9001.class, args);
+    }
+
+}
+```
+3. 注意如果想在图像化界面看到,所有提供的微服务必须依赖监控jar包
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+4. 并且配置一个在主启动类,配置一个bean,或者yml中配置一个参数,不然图像图像化界面中监控不到服务(8001)
+```java
+    @SpringBootApplication
+    @EnableEurekaClient
+    @EnableCircuitBreaker
+    public class PaymentHystrixMain8001
+    {
+        public static void main(String[] args) {
+                SpringApplication.run(PaymentHystrixMain8001.class, args);
+        }
+    
+    
+        /**
+         *此配置是为了服务监控而配置，与服务容错本身无关，springcloud升级后的坑
+         *ServletRegistrationBean因为springboot的默认路径不是"/hystrix.stream"，
+         *只要在自己的项目里配置上下面的servlet就可以了
+         */
+        @Bean
+        public ServletRegistrationBean getServlet() {
+            HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
+            ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
+            registrationBean.setLoadOnStartup(1);
+            registrationBean.addUrlMappings("/hystrix.stream");
+            registrationBean.setName("HystrixMetricsStreamServlet");
+            return registrationBean;
+        }
+    }
+```
+#### 图形化界面怎么看
+![](.Note_images/430fdc79.png)
+
+## 网关
+### zuul和gateway(Spring自己出的网关)区别
+    为什么会出现gatway?(记录日期2020年5月22日13:43:08)
+    一方面zuul2一直跳票,原有的zuul1性能有些跟不上了.
+    Gateway使用的(WebFlux)是非阻塞模式.所以更快.
+### 什么是gateway
+    GateWay是基于异步非阻塞模式上进行开发的,性能方面不需要担心.
+
+    SpringCloud的全新项目,基于Spring 5.0 + Spring Boot 2.0和project Reactor等技术开发的网关,
+    它旨在为了微服务架构提供一种简单有效的统一的API路由管理方式
+
+    SpringCloud Gateway 作为 Spring Cloud 生态系统中的网关,目标是替代Zuul,
+    在SpringCloud 2.0以上版本中,没有对新版本的Zuul2.0以上最新高性能版本进行集成,
+    仍然还是使用的Zuul 1.x非Reactor模式的老版本,而为了提高网关性能,
+    SpringCloud Gateway是基于WebFlux框架实现的,而WebFlux框架底层则使用了高性能的Reactor模式通信架构Netty
+
+    SpringCloud Gateway的目标提供统一的路由方式且基于Filter链的方式提供了网关基本的功能,例如:安全,监控/指标,和限流
+    
+### GateWay特性
+动态路由:能匹配任何请求属性
+可以对路由指定Predicate(断言)和Filter(过滤器)
+集成Hystrix的断路器功能;
+集成SpringCloud服务发现功能;
+易于编写的Predicate(断言)和Filter(过滤器)
+请求限流功能
+支持路径重写.
+### 三大核心概念
+#### 基本流程
+客户端向SpringCloud Gateway发出请求,然后在GateWay Handler Mapping中找到与请求相匹配的路由,将其发送到Gateway WebHandler.
+
+Handler再通过指定的过滤器链来将请求发送到我们实际的服务执行业务逻辑,然后返回.
+过滤器之间用虚线分开是因为过滤器可能会在发送代理请求之前或之后执行业务逻辑.
+![](.Note_images/5a458b8d.png)
+web请求,通过一些匹配条件,定位到真正的服务节点,并在这个转发过程的前后,进行一些精细化控制,Predicate就是我们匹配条件;而filter,就是可以理解为一个无所不能的拦截器,有了这两个元素,再加上目标uri,就可以实现一个具体的路由
+#### 路由
+    基本介绍:路由是构建网关的基本模块,它由ID,目标URI,一系列的断言和过滤器组成,如果断言为true则匹配该路由
+#### 断言
+    基本介绍:参考的是java8的java.util.function.Predicate
+    开发人员可以匹配HTTP请求的所有内容(例如请求头或请求参数),如果请求与断言相匹配则进行路由
+#### 过滤器
+    基本介绍:指的是Spring框架中GatewayFilter的实例,使用过滤器,可以在请求被路由前或者之后对请求进行修改

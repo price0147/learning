@@ -55,7 +55,6 @@ public class PaymentController {
 
     @GetMapping(value = "feign/timeout")
     public String paymentFeignTimeout(){
-
         //暂停3秒钟
         try{
             TimeUnit.SECONDS.sleep(3);
