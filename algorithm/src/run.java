@@ -5,6 +5,7 @@ import interesting.MessageBoom;
 
 import java.awt.*;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 /**
  * @author: wangxu
@@ -12,8 +13,14 @@ import java.nio.charset.StandardCharsets;
  */
 public class run {
     public static void main(String[] args) throws AWTException {
-
-        MessageBoom messageBoom = new MessageBoom();
-        messageBoom.run();
+        ArrayList<Integer> list = new ArrayList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        for (int a : list) {
+            a = 2;
+        }
+        System.out.println(list);
     }
 }

@@ -690,7 +690,7 @@ public class HystrixDashboardMain9001 {
     一方面zuul2一直跳票,原有的zuul1性能有些跟不上了.
     Gateway使用的(WebFlux)是非阻塞模式.所以更快.
 ### 什么是gateway
-    GateWay是基于异步非阻塞模式上进行开发的,性能方面不需要担心.
+    GateWay是基于<异步非阻塞模式!!>上进行开发的,性能方面不需要担心.
 
     SpringCloud的全新项目,基于Spring 5.0 + Spring Boot 2.0和project Reactor等技术开发的网关,
     它旨在为了微服务架构提供一种简单有效的统一的API路由管理方式
@@ -701,7 +701,11 @@ public class HystrixDashboardMain9001 {
     SpringCloud Gateway是基于WebFlux框架实现的,而WebFlux框架底层则使用了高性能的Reactor模式通信架构Netty
 
     SpringCloud Gateway的目标提供统一的路由方式且基于Filter链的方式提供了网关基本的功能,例如:安全,监控/指标,和限流
+### 什么是同步、异步、阻塞、非阻塞状态
+    阻塞和非阻塞是指进程访问的数据如果尚未就绪，进程是否需要等待，简单说这相当于函数内部的实现区别，也就是未就绪时是直接返回还是等待就绪。
     
+    而同步和异步是指访问数据的机制,同步一般指主动请求并等待I/O操作完毕的方式,当数据就绪后在读写的时候必须阻塞,异步则指主动请求数据后便可以继续处理其它任务,
+    随后等待I/O,操作完毕的通知,这可以使进程在数据读写时也不阻塞。
 ### GateWay特性
 动态路由:能匹配任何请求属性
 可以对路由指定Predicate(断言)和Filter(过滤器)
@@ -719,9 +723,50 @@ Handler再通过指定的过滤器链来将请求发送到我们实际的服务�
 ![](.Note_images/5a458b8d.png)
 web请求,通过一些匹配条件,定位到真正的服务节点,并在这个转发过程的前后,进行一些精细化控制,Predicate就是我们匹配条件;而filter,就是可以理解为一个无所不能的拦截器,有了这两个元素,再加上目标uri,就可以实现一个具体的路由
 #### 路由
+    个人理解：某个请求是进入哪一个服务（服务级别）
+    比喻：某人要上高中，要去哪一所高中
     基本介绍:路由是构建网关的基本模块,它由ID,目标URI,一系列的断言和过滤器组成,如果断言为true则匹配该路由
 #### 断言
+    个人理解：该请求是否有资格访问某个服务的接口（接口级别）
+    比喻：选中高中后，你是哪个班的成员？不是二班的成员不可以进入（不符合访问该接口的条件，不允许访问）
     基本介绍:参考的是java8的java.util.function.Predicate
     开发人员可以匹配HTTP请求的所有内容(例如请求头或请求参数),如果请求与断言相匹配则进行路由
 #### 过滤器
+    个人理解：最后一层校验他无所不能，他可能以各种条件进行拦截
     基本介绍:指的是Spring框架中GatewayFilter的实例,使用过滤器,可以在请求被路由前或者之后对请求进行修改
+#### 示例
+新建网关microservicecloud-getaway-9527
+
+为microservicecloud-provider-payment-8001设置网关
+```yaml
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-getaway
+  cloud:
+    gateway:
+      routes:
+        - id: payment_routh #payment_route    #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          uri: http://localhost:8001          #匹配后提供服务的路由地址
+          predicates:
+            - Path=/payment/get/**         # 断言，路径相匹配的进行路由
+
+        - id: payment_routh2 #payment_route    #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          uri: http://localhost:8001          #匹配后提供服务的路由地址
+          predicates:
+            - Path=/payment/lb/**         # 断言，路径相匹配的进行路由
+            #- After=2020-02-21T15:51:37.485+08:00[Asia/Shanghai]
+            #- Cookie=username,zzyy
+            #- Header=X-Request-Id, \d+  # 请求头要有X-Request-Id属性并且值为整数的正则表达式
+
+eureka:
+  instance:
+    hostname: microservicecloud-gateway-service
+  client: #服务提供者provider注册进eureka服务列表内
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://eureka7001.com:7001/eureka
+```

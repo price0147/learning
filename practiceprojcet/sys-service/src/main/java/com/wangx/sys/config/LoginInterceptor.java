@@ -22,10 +22,10 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String path = request.getServletPath();
+        /*String path = request.getServletPath();
         String token = request.getHeader("Token");
         Claims claims = JwtUntil.getTokenInfo(token);
-        log.info(claims.toString());
+        log.info(claims.toString());*/
         return true;
 
     }

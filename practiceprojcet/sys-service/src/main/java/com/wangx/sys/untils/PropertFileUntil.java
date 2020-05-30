@@ -7,20 +7,31 @@ import java.util.ResourceBundle;
  * @date: 2020/3/24 10:00
  */
 public class PropertFileUntil {
+
+    private static PropertFileUntil propertFileUntil;
+
     private ResourceBundle resourcebundle;
 
+    private PropertFileUntil() {}
+
     /**
-     * todo:这个位置暂时可以用但是后期要换成单利模式(具体原因我还不太清楚)具体要学习完设计模式的吧.
-     * todo:好像还涉及到打开多个资源文件.我们现在不考虑这些东西.
+     * 单例模式
+     * @return
+     */
+    public static PropertFileUntil getPropertFileUntil(){
+        if (propertFileUntil == null) {
+            propertFileUntil = new PropertFileUntil();
+        }
+        return propertFileUntil;
+
+    }
+
+    /**
      * 方法说明:获取配置文件
      */
-    public PropertFileUntil(String fileName) {
+    public String getString(String fileName,String key) {
         this.resourcebundle = ResourceBundle.getBundle(fileName);
-    }
-
-    public String getString(String key) {
         return resourcebundle.getString(key);
     }
-
 
 }
