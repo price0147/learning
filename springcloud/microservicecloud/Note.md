@@ -770,3 +770,7 @@ eureka:
       fetch-registry: true
       defaultZone: http://eureka7001.com:7001/eureka
 ```
+### 配置文件中的predicates属性
+一共十几种属性<br>
+![](.Note_images/54f01ffd.png)<br>
+官网地址:https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.3.RELEASE/reference/html/#configuring-route-predicate-factories-and-gateway-filter-factories
