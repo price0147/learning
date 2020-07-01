@@ -12,6 +12,11 @@
     <artifactId>microservicecloud-consumer-order-80</artifactId>
 
     <dependencies>
+        <!--包含了sleuth+zipkin-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!--以前老版本-->
         <!--spring-cloud-starter-eureka-->
         <!--eureka 注意这个是client包-->

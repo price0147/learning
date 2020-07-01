@@ -3,6 +3,7 @@ package com.wangx.sys.controller;
 import com.wangx.sys.untils.PropertFileUntil;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,12 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/sys")
 @Slf4j
 @Api(value = "测试接口", description = "测试接口")
+@RefreshScope //支持Nacos的动态刷新功能
 public class TestController {
 
     @GetMapping("/propertFileUntilTest")
     public String propertFileUntilTest(){
         PropertFileUntil propertFileUntil = PropertFileUntil.getPropertFileUntil();
-        String str = propertFileUntil.getString("application-value.properties", "jwt.key");
+        String str = propertFileUntil.getString("application-dev.properties", "jwt.key");
         return str;
     }
 

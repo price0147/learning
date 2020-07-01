@@ -37,16 +37,16 @@ public class PaymentController {
     public CommonResult create(@RequestBody Payment payment) {
         int result = paymentService.create(payment);
         log.info("插入运行结果" + result);
-        if(result > 0){
+        if (result > 0) {
             return new CommonResult(200, "插入成功,serverPort" + serverPort, result);
         }
         return new CommonResult(500, "插入失败", result);
     }
 
     @GetMapping(value = "get/{id}")
-    public CommonResult getPaymentById(@PathVariable("id") Long id){
+    public CommonResult getPaymentById(@PathVariable("id") Long id) {
         Payment payment = paymentService.getPaymentById(id);
-        if(payment != null){
+        if (payment != null) {
             return new CommonResult(200, "查询成功,serverPort" + serverPort, payment);
         }
         return new CommonResult(500, "查询失败", null);
@@ -54,13 +54,13 @@ public class PaymentController {
     }
 
     @GetMapping(value = "/lb")
-    public String getPaymentLB(){
+    public String getPaymentLB() {
         return serverPort;
 
     }
 
     @GetMapping(value = "/discovery")
-    public Object discovery(){
+    public Object discovery() {
         //获取服务清单列表(方式一)
         List<String> service = discoveryClient.getServices();
         service.forEach(x -> log.info("********" + x));
@@ -72,16 +72,20 @@ public class PaymentController {
     }
 
     @GetMapping(value = "feign/timeout")
-    public String paymentFeignTimeout(){
+    public String paymentFeignTimeout() {
 
         //暂停3秒钟
-        try{
+        try {
             TimeUnit.SECONDS.sleep(3);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return serverPort;
 
     }
 
+    @GetMapping(value = "/zipkin")
+    public String paymentZipkin(){
+        return "hi,i'am paymentzipkin srever fall back,welcome to atguigu,O(∩_∩)O哈哈~";
+    }
 }

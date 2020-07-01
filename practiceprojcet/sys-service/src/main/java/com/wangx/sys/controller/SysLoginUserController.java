@@ -9,6 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ import javax.annotation.Resource;
 @RequestMapping(value = "/sys")
 @Slf4j
 @Api(value = "用户接口", description = "用户管理")
+@RefreshScope //支持Nacos的动态刷新功能
 public class SysLoginUserController {
     @Resource
     private SysLoginUserService sysLoginUserService;

@@ -770,7 +770,278 @@ eureka:
       fetch-registry: true
       defaultZone: http://eureka7001.com:7001/eureka
 ```
-### 配置文件中的predicates属性
+### 配置文件中的predicates属性(断言)
 一共十几种属性<br>
 ![](.Note_images/54f01ffd.png)<br>
 官网地址:https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.3.RELEASE/reference/html/#configuring-route-predicate-factories-and-gateway-filter-factories
+
+### Filer
+声明周期:<br>
+pre:业务逻辑之前<br>
+post:业务逻辑之后<br>
+种类:<br>
+GatewayFilter:单一的<br>
+GlobalFiter:全局的<br>
+%%具体单一过滤器和全局过滤器有很多,自行百度%%
+### 自定义过滤器
+```java
+/**
+ * @author: wangxu
+ * @date: 2020/5/31 20:08
+ */
+@Component
+@Slf4j
+public class MyLogGateWayFilter implements GlobalFilter, Ordered {
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        log.info("*******come in MyLogGateWayFilter: " + new Date());
+        String name = exchange.getRequest().getQueryParams().getFirst("name");
+        if(name == null){
+            log.info("****用户名为null,非法用户,o(╥﹏╥)o");
+            exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
+            return exchange.getResponse().setComplete();
+        }
+        return chain.filter(exchange);
+    }
+
+    /**
+     * 加载过滤器GlobalFilter的顺序,数字越小优先级越高.
+     * @return
+     */
+    @Override
+    public int getOrder() {
+        return 0;
+    }
+}
+
+```
+## SpringCloud Config
+    SpringCloud Config分为服务端和客户端两部分
+    服务端也称为分布式配置中心,它是一个独立的微服务应用,用来连接配置服务器并为客户端提供获取配置信息,加密/解密信息等访问接口
+    客户端则是通过指定的配置中心来管理应用资源,以及与业务相关的配置内容,并在启动的时候从配置中心获取和加载配置信息配置服务器默认采用git来存储配置信息,
+    这样有助于对环境配置进行版本管理,并且可以通过git客户端管理工具来方便的管理管理和访问配置内容.
+### 能做什么
+1. 集中管理配置文件
+2. 不同环境不同配置,动态化的配置更新,分环境部署比如dev/test/bate
+3. 运行期间动态调整配置,不再需要在每个服务部署的机器上编写配置文件,服务会向配置中心统一拉取配置自己的信息
+4. 当配置发生改变时,服务不需要重启即可感知到配置的变化并应用新的配置
+5. 将配置信息以Rest接口的形式暴露
+### 路径配置方式
+    示例:http://localhost:3344/master/config-dev.yml
+    第一种方式:
+    http://localhost:3344/master/config-dev.yml
+    分支/配置文件-文件名
+    /{label}/{application}-{profile}.yml
+    第二种方式:
+    http://localhost:3344/config-dev.yml
+    /配置文件-文件名
+    /{application}-{profile}.yml
+    第三种方式:
+    http://localhost:3344/config/dev/master
+    /配置文件/文件名/分支
+    /{application}/{profile}/{label}
+### 服务端
+```yaml
+server:
+  port: 3344
+
+spring:
+  application:
+    name: microservicecloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/price0147/SpringcloudConfig.git #GitHub上面的git仓库名字
+          ###搜索目录
+          search-paths:
+            - springcloud-config
+      ###读取分支
+      label: master
+
+#服务注册到eureka
+eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:7001/eureka
+```
+### 客户端
+客户端需要配置一个bootstrap.yml
+#### 什么是bootstrap.yml
+application.yml是用户级的志愿配置项<br>
+bootstrap.yml是系统级的.优先级更加高<br>
+Spring Cloud会创建一个"BootStrap Context",作为Spring应用的"Application Context"的父上下文,初试化的时候,"BootStrap Context"负责从外部源加载配置属性并解析配置,这两个上下文共享一个从外部获取的Environment<
+
+"BootStrap"属性有高优先级,默认情况下,它们不会被本地配置覆盖,"Bootstrap context"和"Application Context"有着不同的约定,所以新增了一个Bootstrap.yml文件,保证"Bootstrap Context"和"Application Context"配置的分离.
+
+要将Client模块下的Application.yml文件改为bootstrap.yml这是很关键的
+因为bootstrap.yml是比application.yml先加载的.bootstrap.yml优先级高于application.yml
+```yaml
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    #Config客户端配置
+    config:
+      label: master #分支名称
+      name: config #配置文件名称
+      profile: dev #读取后缀名称   上述3个综合：master分支上config-dev.yml的配置文件被读取http://config-3344.com:3344/master/config-dev.yml
+      uri: http://localhost:3344 #配置中心地址
+
+#服务注册到eureka地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+```
+### 动态刷新
+问题描述:当你修改git上面的配置文件时3344(服务端)因为直连git所以会动态更新.但是3355(客户端)则需要重启才能获取到最新的配置.
+1.修改配置文件
+```xml
+<!--监控-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+```yaml
+#暴露监控端点
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+```
+2.业务类添加
+```java
+/**
+ * @author: wangxu
+ * @date: 2020/6/1 16:47
+ */
+@RestController
+//实现动态刷新功能
+@RefreshScope
+public class ConfigClientController {
+    @Value("${config.info}")
+    private String configInfo;
+
+    @GetMapping("/configInfo")
+    public String getConfigInfo(){
+        return configInfo;
+    }
+}
+```
+3.运维人员需要给客户端发送一   个Post的请求
+http://localhost:3355/actuator/refresh
+
+# RabbitMq
+##交换机模式
+1. fanout: 对应的rabbitmq的工作模式是Publist/Subscribe 发布订阅模式
+2. direct: 对应的Routing工作模式
+3. topic: 对应的Topics工作模式
+4. headers: 对应Header工作模式
+## 工作模式
+1. Work queues 工作队列模式
+    <br>消息不允许被重复消费<br>(轮循的方式)
+    ![](.Note_images/abb7e726.png)
+2. Publist/Subscribe 发布订阅模式
+    1. 一个生产者将消息发给交换机
+    2. 与交换机绑定的有多个队列,每个消费者监听自己的队列.
+    3. 生产者将消息发给交换机,由交换机将消息转发到绑定此交换机的每个队列,每个绑定交换机的队列都将接收到消息
+    4. 如果消息发给了没有绑定队列的交换机上消息将丢失
+    ![](.Note_images/f98e7c24.png)
+3. Routing 路由模式<br>
+    1. 一个交换机绑定多个队列,每个队列设置routingKey,并且一个队列可以设置多个routingKey
+    2. 每一个消费者监听自己的队列
+    3. 生产者将消息发送给交换机,发送消息时需要指定routingKey的值,交换机来判断该routingKey的值和哪个队列的routingKey相等,如果相等则将消息转发给队列.
+    ![](.Note_images/9dfe9ff3.png)
+4. Topics 通配符模式
+    1. 一个交换机可以绑定多个队列,每一个队列可以设置一个或多个带通配符的routingKey
+    2. 生成者将消息发送给交换机,交换机根据routingKey的值来匹配队列,匹配时采用通配符方式,匹配成功的将消息转发到指定队列
+```text
+通配符分为两种:
+    符号#:匹配一个或多个词,比如inform.#可以匹配inform.sms、inform.email、inform.email.sms
+    符号*:只能匹配一个词,比如inform.*可以匹配inform.sms、inform.email
+```
+5. Header Header转发器
+    1. header模式与Routing不同的地方在于,header模式取消了routingkey,使用header中的key/value(键值对)匹配队列
+6. RPC 远程过程调用
+    <br>RPC即客户端远程调用服务端的方法,使用MQ可以实现RPC的异步调用,基于Direct交换机实现,流程如下:
+    1. 客户端即是生产者也是消费者,向RPC请求队列发送RPC的异步调用,同时监听RPC响应队列.
+    2. 服务端监听RPC请求队列的消息,收到消息后执行服务端的方法,得到方法返回的结果
+    3. 服务端将RPC方法的结果发送到RPC响应队列
+# 消息总线
+## 什么是总线
+在微服务架构的系统中,通常会使用请轻量级的消息代理来构建一个公用的消息主题,并让系统中所有微服务实例都连接上来,由于该主题中产生的消息会被所有实例监听和消费,所有称它为消息总线,在总线上的各个实例,都可以方便地广播一些需要让其他连接在该主题上的实例都知道的消息.
+##基本原理
+ConfigCLient实例都监听MQ中同一个topic(默认是springCloudBus).当一个服务刷新数据的时候,它会把这个消息放入到Topic中,这样其他监听同一个Topic的服务就能得到通知,让后去更新自身的配置<br>
+SpringCloud Bus能管理和传播分布式系统间的消息,就像一个分布式执行器,可用于广播状态更改,时间推送等,也可以当做微服务间的通信通道.
+
+# SpringCLoud Sleuth(分布式请求链路跟踪)
+## 介绍
+    问题描述:在微服务架构中,一个由客户端发起的请求在后端系统中会经过多个不同的服务节点调用来协同产生最后的请求结果
+      ,每一个前端请求都会形成一条复杂的分布式服务调用链路,链路中的任何一环出现高延时或错误都会引起整个请求最后的失败.
+## zipkin
+    用于分布式请求链路可视化
+    
+表示一请求链路,一条链路通过Trace Id唯一标识,Span标识发起的请求信息,各span通过parent id关联起来
+![](.Note_images/98ec1b2b.png)
+简化版
+![](.Note_images/409a4adc.png)
+
+# SpringCloud Alibaba
+<hr>
+
+#Nacos(详情见官网(中文))
+    http://localhost:8848/nacos/index.html
+## 简单介绍
+    Nacos支持Ap和Cp的切换
+## 如何选择使用模式
+    一般来说
+    如果不需要存储服务级别的信息且服务实例是通过nacos-client注册,并能够保持心跳上报,那么就可以选择AP模式.当前主流的服务如Spring Cloud 和 Dubbo服务,都适用于AP模式,AP模式为了服务的可用性而减弱一致性,因此AP模式下只支持注册临时实例.
+    
+    如果需要在服务级别编辑或则存储配置信息,那么CP是必须,K8S服务和DNS服务则适用于CP模式.
+    CP模式下则支持注册持久化实例,此时则是以Raft协议为集群运行模式,该模式下注册实例之前必须先注册服务,如果服务不存在,则会返回错误.
+    
+## nacos Config
+pom文件
+```xml
+<!--SpringCloud Nacos Config-->
+<dependency>
+    <groupId>com.alibaba.cloud</groupId>
+    <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
+</dependency>
+<!--SpringCloud Nacos-->
+<dependency>
+    <groupId>com.alibaba.cloud</groupId>
+    <artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
+</dependency>
+```
+业务类(@RefreshScope自动刷新注解)
+```java
+@RestController
+@RefreshScope //支持Nacos的动态刷新功能
+public class ConfigClientController {
+    @Value("${config.info}")
+    private String configInfo;
+
+    @GetMapping("/config/info")
+    public String getConfigInfo(){
+        return configInfo;
+    }
+}
+```
+nacos配置中的dataId
+![](.Note_images/d504a012.png)
+最后公式
+```text
+${spirng.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+```
+![](.Note_images/49b64b96.png)
+
+
+####注意nocas中配置中心的属性配置,一定一定要注意优先级,不然会找不到配置中心上的配置文件
+
