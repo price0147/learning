@@ -10,5 +10,6 @@ spring:
         server-addr: localhost:8848 #Nacos服务注册中心地址
       config:
         server-addr: localhost:8848 #Nacos作为配置中心地址
-        file-extension: yaml #指定yaml格式的配置
+        file-extension: yml #指定yaml格式的配置
         group: localhost #加分组,如果不加分组则在默认分组里面找.
+        namespace: 1e3f1e4a-57d1-46a4-8550-1d8aad93da87 #配置命名空间

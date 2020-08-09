@@ -1036,12 +1036,37 @@ public class ConfigClientController {
 ```
 nacos配置中的dataId
 ![](.Note_images/d504a012.png)
-最后公式
+最后公式(注意后缀名yaml和yml不一样要保持一直)
 ```text
 ${spirng.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
 ```
+
 ![](.Note_images/49b64b96.png)
 
+${spring.profiles.active} 当通过配置文件来指定时必须放在 bootstrap.properties 文件中。
 
 ####注意nocas中配置中心的属性配置,一定一定要注意优先级,不然会找不到配置中心上的配置文件
+## 命名空间
+![](.Note_images/6201400e.png)
+```yaml
+server:
+  port: 3377
 
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #Nacos服务注册中心地址
+      config:
+        server-addr: localhost:8848 #Nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式的配置
+        group: localhost #加分组,如果不加分组则在默认分组里面找.
+        namespace: 67ca51af-ec2f-4740-afbe-ee5cdfa0ae83 #配置命名空间
+```
+## nacos的集群部署
+![](.Note_images/3021d9aa.png)
+```text
+VIP:虚拟IP ——>可以理解为negix
+```
