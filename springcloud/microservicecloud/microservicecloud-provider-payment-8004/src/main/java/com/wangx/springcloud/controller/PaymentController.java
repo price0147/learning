@@ -21,5 +21,4 @@ public class PaymentController {
     public String serverPort(){
         return "port:" + serverPort + "\t" + UUID.randomUUID().toString();
     }
-
 }
