@@ -17,5 +17,6 @@ public class PaymentMain9001 {
     public static void main(String[] args) {
         SpringApplication.run(PaymentMain9001.class, args);
         log.info(">>>>>>启动完成<<<<<<<");
+
     }
 }
