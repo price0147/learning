@@ -1,4 +1,4 @@
-package exercisecoding.StaticAgent;
+package exercisecoding.staticagent;
 
 /**
  * @author: wangxu

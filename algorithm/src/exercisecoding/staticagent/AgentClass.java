@@ -1,4 +1,4 @@
-package exercisecoding.StaticAgent;
+package exercisecoding.staticagent;
 
 /**
  * @author: wangxu
@@ -6,7 +6,7 @@ package exercisecoding.StaticAgent;
  */
 public class AgentClass implements StaticAgentInter{
     StaticAgentInter staticAgentInter;
-    public AgentClass(StaticAgent staticAgentInter){
+    public AgentClass(StaticAgentInter staticAgentInter){
         this.staticAgentInter = staticAgentInter;
     }
     //代理部分.
