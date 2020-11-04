@@ -14,6 +14,12 @@ public class Run {
                 jdkDynamicAgent.getClass().getInterfaces(),
                 new AgentClass(jdkDynamicAgent));
         jdkDynamicAgentInter.soutLog();
+
+        /*
+        更动态的使用动态代理
+         */
+        JdkDynamicAgentInter proxy = (JdkDynamicAgentInter)new GoodAgentClass(jdkDynamicAgent).getProxyInstance();
+        proxy.soutLog();
     }
 
 }

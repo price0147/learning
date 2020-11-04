@@ -6,6 +6,7 @@ package exercisecoding.staticagent;
  */
 public class AgentClass implements StaticAgentInter{
     StaticAgentInter staticAgentInter;
+    //唯一的构造器.想new一个代理类对象就必须初始化一个代理类
     public AgentClass(StaticAgentInter staticAgentInter){
         this.staticAgentInter = staticAgentInter;
     }
