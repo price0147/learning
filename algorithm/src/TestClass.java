@@ -1,10 +1,11 @@
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
  * @author: wangxu
  * @date: 2020/9/16 15:10
  */
-public class TestClass{
+public class TestClass implements Serializable {
     //普通代码块
     {
         System.out.println("普通代码块");
